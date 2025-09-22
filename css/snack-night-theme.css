@@ -1,0 +1,32 @@
+/* ================================================== */
+/* SNACK NIGHT THEME                                  */
+/* Colors, Fonts, and Core Variables                  */
+/* ================================================== */
+
+:root {
+    /* --- Font Definitions --- */
+    --title-font: "Plus Jakarta Sans", Helvetica, Arial, sans-serif;
+    --body-font: "Plus Jakarta Sans", Helvetica, Arial, sans-serif;
+    --title-font-weight: 800; /* Bolder for more impact */
+    --body-font-size: 16px;
+  
+    /* --- Brand Palette --- */
+    --yellow: #E1BA04;
+    --green: #618A00;
+    --cosmic-latte: #FFFBEA;
+    --black-olive: #2D2F28;
+    --blue: #0365DE;
+    --cherry: #8A001C;
+    --special-accent: #E14B04;
+  
+    /* --- Theme Assignments --- */
+    --primary-color: var(--yellow);
+    --primary-color-rgb: 225, 186, 4;
+    
+    /* Default text colors */
+    --title-font-color: var(--yellow);
+    --body-font-color: var(--cosmic-latte);
+  
+    /* Background color */
+    --bg-dark-1: var(--black-olive);
+  }

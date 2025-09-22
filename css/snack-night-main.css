@@ -1,0 +1,418 @@
+/* ================================================== */
+/* SNACK NIGHT MAIN STYLES                            */
+/* Cleaned and refactored from original template      */
+/* ================================================== */
+
+/* --- 1. Global & Body Styles --- */
+html {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    background: var(--bg-dark-1);
+  }
+  
+  body {
+    font-family: var(--body-font);
+    font-size: var(--body-font-size);
+    font-weight: 400;
+    color: var(--body-font-color);
+    line-height: 29px;
+    background: var(--bg-dark-1);
+  }
+  
+  #wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  p {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  p.lead {
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 400;
+  }
+  
+  p.no-bottom {
+      margin-bottom: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--green); /* Default link color */
+  }
+  
+/* --- 2. Headers & Typography --- */
+h1, h2, h4, h5, h6 {
+  text-transform: uppercase;
+  margin-top: 0;
+  font-family: var(--title-font);
+  font-weight: var(--title-font-weight);
+  color: var(--title-font-color); /* Defaults to Yellow */
+}
+
+/* Set specific colors for H1 and H3 */
+h3 {
+  color: var(--cosmic-latte);
+}
+
+h1 {
+  font-size: 64px;
+  margin-bottom: 20px;
+  line-height: 1.1em;
+  letter-spacing: -2.5px;
+}
+
+h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  line-height: 1.1em;
+  letter-spacing: -1.25px;
+}
+
+h3 {
+  font-size: 48px;
+  line-height: 1.4em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  position: relative;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: var(--title-font);
+  color: var(--yellow); /* Reverted to green as originally requested */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.lh-1 { line-height: 1em; }
+.fw-800 { font-weight: 800; }
+.text-lg-end { text-align: end; }
+.text-dark .d-item-txt { color: var(--black-olive); }
+.text-white { color: var(--cosmic-latte) !important; }
+
+/* --- Text Fit & Large Titles --- */
+.text-fit-wrapper {
+  width: 100%;
+  text-align: center; /* This is the key fix for centering */
+  line-height: -.8em;
+  padding-right: 1vw;
+}
+
+.text-fit {
+  margin-top: -.1em;
+  letter-spacing: -1vw;
+  line-height: 1em;
+  font-weight: 800;
+}
+  
+  /* --- 3. Layout & Spacing --- */
+  section {
+    padding: 120px 0;
+  }
+  .no-top { padding-top: 0 !important; }
+  .no-bottom { padding-bottom: 0 !important; }
+  
+  .spacer-single { height: 30px; display: block; clear: both; }
+  .spacer-double { height: 60px; display: block; clear: both; }
+  .spacer-10 { height: 10px; display: block; clear: both; }
+  
+  .relative { position: relative; z-index: 1; }
+  .absolute { position: absolute; z-index: 1; }
+  .bottom-0 { bottom: 0; }
+  .w-100 { width: 100%; }
+  
+  /* --- 4. Cards & Hover Effects --- */
+  .hover {
+    transition: .5s;
+  }
+  .hover a img {
+    transition: transform .5s ease;
+  }
+  .hover a:hover img {
+    transform: scale(1.05);
+  }
+  .hover-scale-1-2 {
+    transition: .5s;
+  }
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .text-light {
+    color: var(--cosmic-latte);
+  }
+  .abs-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .fs-40 { font-size: 40px; }
+  .fs-84 { font-size: 84px; }
+  .z-index-1 { z-index: 1; }
+  
+  .hover-op-0 { opacity: 1; }
+  .hover:hover .hover-op-0 { opacity: 0; }
+  
+  /* Overlay base */
+  .hover a.overflow-hidden.d-block.relative:after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: transparent !important;
+    transition: all .5s;
+  }
+  
+  /* Specific Yellow Overlay */
+  .card-yellow-overlay .hover a.overflow-hidden.d-block.relative:after {
+    background: var(--yellow) !important; 
+    opacity: 0.0;
+  }
+  .card-yellow-overlay .hover, .card-section .hover {
+    aspect-ratio: 1 / 1;
+  }
+  .card-yellow-overlay .hover img, .card-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .d-tag-s2 {
+    text-transform: uppercase;
+    font-size: 12px;
+    border: solid 1px rgba(255, 255, 255, .5);
+    padding: 0 10px;
+    border-radius: 30px;
+  }
+  
+
+/* --- 5. Marquee --- */
+.de-marquee-list {
+  display: flex;
+  align-items: top;
+  animation: loop 40s infinite linear;
+}
+.de-marquee-list .d-item-txt {
+  font-size: 120px;
+  line-height: 120px;
+  font-weight: bold;
+  font-family: var(--title-font);
+  user-select: none;
+  text-transform: uppercase;
+}
+
+/* This styles the odd items (1st, 3rd, etc.) to be Cosmic Latte */
+.de-marquee-list .d-item-txt:nth-child(odd) {
+  -webkit-text-stroke: 1px var(--green);
+  -webkit-text-fill-color: var(--bg-dark-1); 
+}
+
+/* This styles the even items (2nd, 4th, etc.) with the yellow fill */
+.de-marquee-list .d-item-txt:nth-child(even) {
+  -webkit-text-stroke: 1px var(--yellow);
+  -webkit-text-fill-color: var(--bg-dark-1); 
+}
+  
+  /* --- 6. Footer --- */
+  footer {
+    padding: 0 0 60px 0;
+  }
+  .d-menu-1 {
+    position: relative;
+    z-index: 1005;
+    margin: 0;
+    padding-left: 1.5vw;
+  }
+  .d-menu-1 li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 2em;
+  }
+  .d-menu-1 li a {
+    font-weight: 800;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .d-menu-1 li a:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 2px;
+    display: block;
+    background: #ffffff;
+    opacity: 0;
+    transition: .5s;
+  }
+  .d-menu-1 li:hover a:after, .d-menu-1 li.active a:after {
+    width: 100%;
+    opacity: 1;
+  }
+  .shuffle { visibility: hidden; } /* From plugins.css, needed for animation */
+  
+  /* --- 7. Contact Form --- */
+  .field-set {
+    margin-bottom: 1rem;
+  }
+  .d-label {
+    display: inline-block;
+    color: var(--body-font-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .form-control {
+    background: #111111;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: solid 1px rgba(255,255,255,0.25);
+    height: auto;
+    border-radius: 6px;
+  }
+  .form-control:focus {
+    background: #111111;
+    color:#ffffff;
+    box-shadow: none;
+  }
+  .no-border {
+    border: none !important;
+  }
+  textarea.form-control {
+    height: 253px;
+  }
+  .btn-main, .btn-line {
+    display: inline-block;
+    font-family: var(--title-font);
+    text-align: center;
+    outline: 0;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 25px;
+    font-size: 15px;
+    border-radius: 30px;
+  }
+  .btn-main {
+    background-color: var(--green);
+    color: var(--cosmic-latte);
+    border: none;
+  }
+  .btn-line {
+    background: none !important;
+    color: var(--cosmic-latte);
+    border: solid 1px rgba(255, 255, 255, .35);
+  }
+  #success_message, #error_message {
+    display: none;
+    margin-top: 30px;
+    clear: both;
+    padding: 20px;
+  }
+  #success_message {
+    color: #96c346;
+    background: rgba(150, 195, 70, .1);
+    border: solid 1px #96c346;
+  }
+  #error_message {
+    color: #e7505a;
+    background: rgba(231, 80, 90, .1);
+    border: solid 1px #e7505a;
+  }
+  .z1000 { z-index: 1000; }
+  
+  /* --- 8. Helper & Utility Classes --- */
+  .de-loader {
+    /* This is just a placeholder; full preloader is in plugins.css */
+    position: fixed; 
+  }
+  .float-text {
+      position: fixed;
+      z-index: 1002;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+  }
+  .float-text span a {
+      writing-mode: vertical-rl;
+      transform: rotate(-180deg);
+      color: var(--cosmic-latte) !important;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .75px;
+  }
+  .scrollbar-v {
+    background: var(--primary-color);
+    position: fixed;
+    top: calc(50% + 65px);
+    left: 43px;
+    width: 2px;
+    z-index: 1000;
+    transition: all linear 0.1s;
+  }
+  .show-on-scroll {
+    opacity: 0;
+    transition: .5s;
+  }
+  .show-on-scroll.show {
+    opacity: 1;
+  }
+  
+  /* --- 9. Responsive Styles --- */
+  @media only screen and (max-width: 992px) {
+    section { padding: 60px 0; }
+    h1, .text-fit { font-size: 60px !important; }
+    h2 { font-size: 40px; }
+    .de-marquee-list .d-item-txt { font-size: 60px; line-height: 60px; }
+    .scrollbar-v, .float-text { display: none; }
+  }
+  
+  @media only screen and (max-width: 767px) {
+    section { padding: 40px 0; }
+    h1, .text-fit { font-size: 48px !important; letter-spacing: -2px; }
+    h2 { font-size: 36px; }
+    .fs-84 { font-size: 48px; }
+  }
+
+
+/* --- 10. Background Shape Styles --- */
+.bg-shape-green {
+  position: absolute;
+  top: 235px; /* Adjust to move shape up/down */
+  left: -150%; /* Adjust to move shape left/right */
+  width: 80%; /* Makes the shape slightly larger than the card */
+  height: auto;
+  z-index: 0; /* Puts the shape behind other elements */
+}
+
+.bg-shape-blue {
+  position: absolute;
+  top: 235px; /* Adjust to move shape up/down */
+  left: -150%; /* Adjust to move shape left/right */
+  width: 80%; /* Makes the shape slightly larger than the card */
+  height: auto;
+  z-index: 0; /* Puts the shape behind other elements */
+}
+
+.fish-container {
+  padding: 60px 0; /* Adds some vertical space around the icons */
+}
+
+.half-fish {
+  position: absolute;
+  width: 25%; /* Makes the shape slightly larger than the card */
+}
+
+
+
+
