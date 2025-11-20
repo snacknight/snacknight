@@ -3,10 +3,24 @@
 /* Colors, Fonts, and Core Variables                  */
 /* ================================================== */
 
+/* ================================================== */
+/* CUSTOM FONT LOADING                                */
+/* ================================================== */
+
+@font-face {
+    font-family: 'Joy';
+    src: url('../fonts/Joy.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ================================================== */
+
+
 :root {
     /* --- Font Definitions --- */
-    --title-font: "Plus Jakarta Sans", Helvetica, Arial, sans-serif;
-    --body-font: "Plus Jakarta Sans", Helvetica, Arial, sans-serif;
+    --title-font: "Joy", cursive;
+    --body-font: "montserrat", sans-serif;
     --title-font-weight: 800; /* Bolder for more impact */
     --body-font-size: 16px;
   
