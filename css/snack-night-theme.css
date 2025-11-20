@@ -19,8 +19,8 @@
 
 :root {
     /* --- Font Definitions --- */
-    --title-font: "Joy",
-    --body-font: "montserrat", sans-serif;
+    --title-font: "Joy";
+    --body-font: "inter", sans-serif;
     --title-font-weight: 800; /* Bolder for more impact */
     --body-font-size: 16px;
   

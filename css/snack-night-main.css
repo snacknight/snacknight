@@ -47,7 +47,7 @@ html {
   
 /* --- 2. Headers & Typography --- */
 h1, h2, h4, h5, h6 {
-  text-transform: uppercase;
+  text-transform: none;
   margin-top: 0;
   font-family: var(--title-font);
   font-weight: var(--title-font-weight);
@@ -87,7 +87,7 @@ h3 {
   font-weight: bold;
   font-family: var(--title-font);
   color: var(--yellow); /* Reverted to green as originally requested */
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
@@ -110,7 +110,9 @@ h3 {
   margin-top: -.1em;
   letter-spacing: -1vw;
   line-height: 1em;
-  font-weight: 800;
+  font-weight: normal;
+  font-family: var(--title-font);
+  text-transform: none;
 }
   
   /* --- 3. Layout & Spacing --- */
@@ -207,10 +209,10 @@ h3 {
 .de-marquee-list .d-item-txt {
   font-size: 120px;
   line-height: 120px;
-  font-weight: bold;
+  font-weight: normal;
   font-family: var(--title-font);
   user-select: none;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 /* This styles the odd items (1st, 3rd, etc.) to be Cosmic Latte */
