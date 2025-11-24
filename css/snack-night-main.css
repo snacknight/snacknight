@@ -77,13 +77,13 @@ h3 {
   font-size: 48px;
   line-height: 1.4em;
   margin-bottom: 10px;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 .subtitle {
   position: relative;
   display: inline-block;
-  font-size: 13px;
+  font-size: 25px;
   font-weight: bold;
   font-family: var(--title-font);
   color: var(--yellow); /* Reverted to green as originally requested */
