@@ -151,34 +151,23 @@
     <div class="about-portraits" aria-label="Meet the team">
 
       <!-- Kyle -->
-      <div class="portrait-card">
-          <div class="sardine-container">
-            <img src="assets/images/about-photo-frame1.png" class="sardine-frame" alt="">
-            <div class="sardine-photo-crop">
-              <img src="assets/images/kyle.png" alt="Kyle Finnegan">
-            </div>
-          </div>
-          <p class="portrait-name">Kyle Finnegan</p>
-        </div>
+      <div class="portrait-card kyle">
+              <img src="assets/images/kyle.png" alt="Kyle Finnegan" class="portrait-img">
+              <p class="portrait-name">Kyle Finnegan</p>
+      </div>
 
       <!-- Center blobs -->
       <div class="about-blobs">
         <div class="about-blob-item green-blob" style="position:relative;">
-          <svg aria-hidden="true" style="position:absolute;left:-50px;top:50%;transform:translateY(-50%);" width="55" height="30" viewBox="0 0 55 30">
-            <path d="M50 15 Q30 5 8 15" stroke="#5B8A2A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M12 10 L5 15 L12 20" stroke="#5B8A2A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <img src="assets/images/arrow.png" aria-hidden="true" style="position:absolute; left:-50px; top:50%; transform:translateY(-50%) scaleX(1); width: 100px;" alt="">
           <ul>
             <li>filmmaker</li>
             <li>man</li>
-            <li>snack enthusiast</li>
+            <li>snack <br> enthusiast</li>
           </ul>
         </div>
         <div class="about-blob-item blue-blob" style="position:relative;">
-          <svg aria-hidden="true" style="position:absolute;right:-50px;top:50%;transform:translateY(-50%);" width="55" height="30" viewBox="0 0 55 30">
-            <path d="M5 15 Q25 5 48 15" stroke="#3B82C4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M43 10 L50 15 L43 20" stroke="#3B82C4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <img src="assets/images/arrow.png" aria-hidden="true" style="position:absolute; right:-55px; top:40%; transform:translateY(-50%) scaleX(-1); width: 100px;" alt="">
           <ul>
             <li>editor</li>
             <li>pisces</li>
@@ -188,18 +177,12 @@
       </div>
 
       <!-- Irem -->
-    <div class="portrait-card">
-        <div class="sardine-container">
-          <img src="assets/images/about-photo-frame2.png" class="sardine-frame" alt="">
-          <div class="sardine-photo-crop">
-            <img src="assets/images/irem.png" alt="Irem Dogancali">
-          </div>
-        </div>
-         <p class="portrait-name">Irem Dogancali</p>
-        </div>
+      <div class="portrait-card irem">
+        <img src="assets/images/irem.png" alt="Irem Dogancali" class="portrait-img">
+        <p class="portrait-name">Irem Dogancali</p>
+      </div>
       
       </div>
-    <div style="height:2.5rem;background:var(--green-dark);"></div>
     <div class="about-text-section">
       <div class="about-text-inner">
         <!--
@@ -214,9 +197,6 @@
         </p>
       </div>
     </div>
-
-    <!-- Cream → dark green transition back into contact -->
-    <div style="background:var(--cream);background-image:url('assets/images/rough-paper-texture.png');background-size:cover;height:2rem;"></div>
   </section>
 
 
@@ -226,40 +206,21 @@
   <section id="contact" class="contact-page section-scroll-target" aria-label="Contact Snack Night">
 
     <div class="contact-hero">
-      <div aria-hidden="true">
-        <svg viewBox="0 0 300 60" width="300" height="60" style="display:inline-block;overflow:visible;">
-          <defs>
-            <path id="arch" d="M 20,50 Q 150,-10 280,50"/>
-          </defs>
-          <text font-family="var(--font-display), 'Fredoka', sans-serif" font-size="18" font-weight="600" fill="var(--yellow)" letter-spacing="2">
-            <textPath href="#arch">let's get cookin'</textPath>
-          </text>
-        </svg>
-      </div>
-
-      <div class="contact-blob-wrap">
-        <div class="contact-blob">
-          <h2>drop us a line</h2>
-        </div>
-        <img src="assets/images/contact-fish-hook.png" alt="">
-          <svg viewBox="0 0 100 120" width="80" height="100" style="opacity:0.85;">
-            <line x1="15" y1="5" x2="55" y2="85" stroke="var(--yellow)" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="55" y1="85" x2="58" y2="105" stroke="var(--yellow)" stroke-width="1.5"/>
-            <ellipse cx="58" cy="110" rx="10" ry="6" fill="var(--yellow)" opacity="0.8"/>
-            <path d="M68 110 L78 105 L78 115 Z" fill="var(--yellow)" opacity="0.7"/>
-            <circle cx="52" cy="109" r="1.5" fill="var(--green-dark)"/>
-          </svg>
+        <div class="contact-blob-wrap">
+          <img src="assets/images/dropusaline.png" alt="Let's get cookin', drop us a line" style="max-width: 350px; height: auto;">
+                
+        <dotlottie-player 
+          src="assets/images/fish-hook.lottie" 
+          background="transparent"  
+          speed="1"  
+          style="width: 250px; height: 250px; margin-left: -10rem; margin-top: 2.2rem;" 
+          loop 
+          autoplay>
+        </dotlottie-player>
         </div>
       </div>
-    </div>
 
     <div class="contact-form-section">
-      <!--
-        FORMSPREE SETUP (5 min):
-        1. formspree.io → free account → New Form → email: hi@snacknight.mov
-        2. Copy your form ID (e.g. xrgjkpzb)
-        3. Replace YOUR_FORM_ID below
-      -->
       <form
         id="contact-form"
         class="contact-form"
@@ -283,14 +244,15 @@
           <select id="project-type" name="project_type">
             <option value="" disabled selected>select a type</option>
             <option value="music-video">music video</option>
-            <option value="documentary">documentary / short film</option>
+            <option value="documentary">documentary</option>
+             <option value="documentary">narrative</option>
             <option value="branded-content">branded content</option>
             <option value="other">something else</option>
           </select>
         </div>
         <div class="form-group">
           <label for="message">tell us about your project</label>
-          <textarea id="message" name="message" placeholder="give us the vibe — timeline, budget range, your vision, whatever feels relevant" required></textarea>
+          <textarea id="message" name="message" placeholder="give us the must have ingredients — timeline, budget range, your vision, whatever feels relevant" required></textarea>
         </div>
         <div class="form-submit">
           <button type="submit">send it →</button>
@@ -305,8 +267,6 @@
     </div>
 
   </section>
-
-
   <!-- ============================================================
        SECTION: BLOG
   ============================================================ -->
@@ -316,8 +276,62 @@
       <h2 class="blog-section-title">the snack log</h2>
     </div>
 
-    <div id="blog-grid" class="blog-grid" aria-label="Blog posts" aria-live="polite">
-      <p class="loading">loading posts...</p>
+    <div class="blog-grid" aria-label="Video Essays">
+      <a href="https://www.instagram.com/p/DTbRwfFiYoV/" target="_blank" rel="noopener" class="blog-card">
+        <div class="blog-card-img">
+          <img src="assets/images/blog1.png" alt="Video thumbnail">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-date"></div>
+          <h3 class="blog-card-title">Flirty Little Fling VFX Breakdown</h3>
+          <p class="blog-card-excerpt">If you’ve ever felt like you’re talking to a brick wall on a date, this one is for you. Irem Dogancali breaks down how VFX can give a static shot a little more life.</p>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/p/DTLZejWjn7Q/" target="_blank" rel="noopener" class="blog-card">
+        <div class="blog-card-img">
+          <img src="assets/images/blog2.png" alt="Video thumbnail">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-date"></div>
+          <h3 class="blog-card-title">Flirty Little Fling Scene Breakdown</h3>
+          <p class="blog-card-excerpt">How did a few pieces of grip and a household product make this scene possible? Kyle Finnegan breaks it down. Link in our bio for the full video 🩷 🎥</p>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/p/DUrGaB3iXv3/" target="_blank" rel="noopener" class="blog-card">
+        <div class="blog-card-img">
+          <img src="assets/images/blog3.png" alt="Video thumbnail">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-date"></div>
+          <h3 class="blog-card-title">MSG: Mysterious Savory Grains</h3>
+          <p class="blog-card-excerpt">Coming soon to an Internet near you: MSG: Mysterious Savory Grains. The story of our favorite misunderstood seasoning 🧂🥡 🎥</p>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/p/DS5z8cvCaGy/" target="_blank" rel="noopener" class="blog-card">
+        <div class="blog-card-img">
+          <img src="assets/images/blog4.png" alt="Video thumbnail">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-date"></div>
+          <h3 class="blog-card-title">Flirty Little Fling</h3>
+          <p class="blog-card-excerpt">She told you babe! Don’t forget to vote for MADDIE and Flirty Little Fling in Wammies.</p>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/p/DRmnA13jgnq/" target="_blank" rel="noopener" class="blog-card">
+        <div class="blog-card-img">
+          <img src="assets/images/blog5.png" alt="Video thumbnail">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-date"></div>
+          <h3 class="blog-card-title">Snack Night</h3>
+          <p class="blog-card-excerpt">A filmmaking duo obsessed with snacks. That’s Snack Night.</p>
+        </div>
+      </a>
+
     </div>
 
   </section>
@@ -360,7 +374,15 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       window.SnackNight.initContactForm();
-      window.SnackNight.loadBlogPosts('#blog-grid');
+    });
+  </script>
+
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.SnackNight.initContactForm();
     });
   </script>
 
