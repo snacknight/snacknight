@@ -1860,6 +1860,15 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   }
   .navbar-toggle { display: block; }
   
+  /* Show the menu when the 'active' class is added */
+  .navbar-nav.active {
+    display: flex;
+  }
+  
+  /* Animate the hamburger into an 'X' */
+  .navbar-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .navbar-toggle.active span:nth-child(2) { opacity: 0; }
+  .navbar-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .portrait-card { width: 240px; }
   
   .contact-blob-wrap {
