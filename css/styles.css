@@ -390,8 +390,9 @@ img, video {
   background-image: url('../assets/images/footer.png');
   background-size: 100% 100%;
   background-position: center top;
-  padding: 15rem 2rem 2rem;
-  margin-top: -12rem;
+  padding-top: 15rem; /* Increased to push content down further into the cardboard */
+  padding-bottom: -1rem;
+  margin-top: -9rem;  
   text-align: center;
 }
 
@@ -435,27 +436,6 @@ img, video {
   display: block;
 }
 
-.footer-sardines {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.footer-sardines img {
-  height: 22px;
-  width: auto;
-  opacity: 0.8;
-}
-
-/* Sardine placeholder SVGs — remove when real assets added */
-.sardine-placeholder {
-  width: 55px;
-  height: 14px;
-  background: var(--blue);
-  opacity: 0.6;
-  border-radius: 50% 40% 40% 50%;
-  display: block;
-}
 
 .footer-icons {
   display: flex;
@@ -476,12 +456,13 @@ img, video {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   background: var(--blue);
   border-radius: 50%;
   color: var(--white);
   font-size: 1.2rem;
+  flex-shrink: 0;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
@@ -491,8 +472,8 @@ img, video {
 }
 
 .footer-icon-link svg {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
 }
 
@@ -582,7 +563,7 @@ img, video {
   position: relative;
   z-index: 1;
   justify-content: center;
-  margin-top: -19rem;
+  margin-top: -12rem;
 }
 
 .hero-video-wrapper {
@@ -860,6 +841,8 @@ max-width: 800px;
 margin: 0 auto;
 padding: 0 2.5rem 5rem;
 position: relative;
+margin-top: -5rem;
+margin-bottom: -5rem;
 }
 
 /* "projects" pill blob — floats in center of grid */
@@ -1120,166 +1103,6 @@ transition: transform 0.4s ease;
 }
 
 
-
-/* ============================================================
-   INDIVIDUAL PROJECT PAGE
-   ============================================================ */
-.project-page {
-  background: var(--green-dark);
-  min-height: 100vh;
-}
-
-.project-layout {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 3rem 2rem 5rem;
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 3rem;
-  align-items: start;
-}
-
-/* Left: photo grid */
-.project-photos {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.project-photo-main {
-  aspect-ratio: 16/10;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #111;
-}
-
-.project-photo-main img,
-.project-photo-main video,
-.project-photo-main iframe {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.project-photo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
-
-.project-photo-grid-item {
-  aspect-ratio: 4/3;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #111;
-}
-
-.project-photo-grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-photo-grid-item:hover img {
-  transform: scale(1.03);
-}
-
-/* Right: Nutrition Label Credits */
-.nutrition-label {
-  background: var(--white);
-  color: #000;
-  border: 2px solid #000;
-  border-radius: 4px;
-  padding: 1rem 1rem 0.75rem;
-  font-family: var(--font-display);
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.15);
-}
-
-.nutrition-label-title {
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1.0;
-  margin-bottom: 0.25rem;
-  font-family: var(--font-body);
-}
-
-.nutrition-label-subtitle {
-  font-size: 0.8rem;
-  margin-bottom: 0.2rem;
-}
-
-.nutrition-label-type {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  border-top: 8px solid #000;
-  border-bottom: 3px solid #000;
-  padding: 0.3rem 0;
-  margin: 0.4rem 0;
-}
-
-.nutrition-label-type .label { font-size: 0.85rem; }
-.nutrition-label-type .value { font-size: 1.2rem; font-weight: 700; }
-
-.nutrition-label-desc {
-  font-size: 0.75rem;
-  line-height: 1.4;
-  margin: 0.2rem 0;
-}
-
-.nutrition-divider {
-  border: none;
-  border-top: 5px solid #000;
-  margin: 0.5rem 0;
-}
-
-.nutrition-divider.thin {
-  border-top-width: 1px;
-  margin: 0.3rem 0;
-}
-
-.nutrition-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 0.25rem 0;
-  border-bottom: 1px solid #ccc;
-  font-size: 0.82rem;
-}
-
-.nutrition-row:last-child {
-  border-bottom: none;
-}
-
-.nutrition-row .role {
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.nutrition-row .role-sub {
-  font-weight: 400;
-  font-size: 0.75rem;
-  padding-left: 0.75rem;
-  display: block;
-}
-
-.nutrition-row .name {
-  font-size: 0.8rem;
-  text-align: right;
-  max-width: 140px;
-}
-
-.nutrition-footnote {
-  font-size: 0.68rem;
-  line-height: 1.4;
-  margin-top: 0.5rem;
-  border-top: 1px solid #000;
-  padding-top: 0.4rem;
-  color: #444;
-}
-
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
@@ -1430,7 +1253,7 @@ transition: transform 0.4s ease;
 
 .blog-header {
   text-align: center;
-  padding: 4rem 2rem 2rem;
+  padding: 1rem 2rem 2rem;
 }
 
 .blog-header h1 {
@@ -1442,7 +1265,7 @@ transition: transform 0.4s ease;
 }
 
 .blog-grid {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem 2rem 5rem;
   display: grid;
@@ -1731,12 +1554,34 @@ MISC & RESPONSIVE
 /* ============================================================
 BLOG SECTION TITLE (on home page the blog is an h2)
 ============================================================ */
+.blog-header h1,
 .blog-section-title {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 700;
   color: var(--cream);
   text-transform: lowercase;
+  position: relative;
+  display: inline-block; /* Required so the underline perfectly hugs the text width */
+  z-index: 1;
+}
+
+.blog-header h1::after,
+.blog-section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%; 
+  
+  /* Switched from px to em so it scales WITH the text! */
+  height: 1.5em;    
+  bottom: -0.6em;   
+  
+  background: url('../assets/images/loop-underline.png') no-repeat center;
+  background-size: contain;
+  pointer-events: none;
+  z-index: -1; 
 }
 
 /* ============================================================
@@ -1800,7 +1645,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
     grid-template-columns: 1fr;
     max-width: 400px;
     margin: 0 auto;
-    padding: 0 1rem 4rem;
+    padding: 0 1rem 0rem;
   }
   
   /* Disable the desktop hover translations */
@@ -1831,55 +1676,109 @@ BLOG SECTION TITLE (on home page the blog is an h2)
     margin: 0.5rem auto 0;
     display: block;
   }
+  .about-header {
+    padding-top: 1rem; 
+  }
 
   .about-portraits {
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
   }
   .about-blobs { 
-    order: -1; 
-    margin: 2rem 0;
+    display: none !important; 
   }
-  
-  .about-blob-item img[src*="arrow.png"] { display: none !important; }
 }
 
 @media (max-width: 768px) {
   .navbar-nav {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: 120px; 
+    left: auto;
+    right: 1.5rem;
+    min-width: 200px;
     background: var(--cream);
     flex-direction: column;
     gap: 0;
-    padding: 1rem 0;
-    border-top: 1px solid rgba(43, 58, 24, 0.15);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 0;
+    border: 1px solid rgba(43, 58, 24, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   }
-  .navbar-toggle { display: block; }
-  
-  /* Show the menu when the 'active' class is added */
+
+.navbar-toggle { 
+    display: block; 
+    padding: 1.5rem;       /* Huge tap target */
+    margin-left: auto;     /* Pushes it to the far right */
+    margin-bottom: 5rem;   /* Matches the logo so they sit on the same line! */
+    margin-top: -1rem;     /* Nudges it visually into the center of the cream paper */
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;  /* Guarantees it registers clicks */
+  }
+
   .navbar-nav.active {
     display: flex;
   }
+/* 2. Menu Items */
+  .navbar-nav li {
+    width: 100%;
+    border-bottom: 1px solid rgba(43, 58, 24, 0.1);
+  }
   
-  /* Animate the hamburger into an 'X' */
+  .navbar-nav li:last-child {
+    border-bottom: none;
+  }
+
+.navbar-nav a {
+    display: block;
+    padding: 1rem 1.5rem; /* Slightly tighter padding */
+    text-align: right;    /* Flushes the text to the right side */
+    font-size: 1.4rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+/* 3. Hide Tooltips AND Drawings on Mobile */
+  .navbar-nav a::before,
+  .navbar-nav a::after {
+    display: none !important;
+  }
+
   .navbar-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .navbar-toggle.active span:nth-child(2) { opacity: 0; }
   .navbar-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  
+  /* Portrait sizing */
   .portrait-card { width: 240px; }
   
+  /* Contact Fish Shrink */
   .contact-blob-wrap {
     transform: scale(0.7);
     transform-origin: center;
     margin-left: -1rem; 
   }
   
+/* Typography & Spacing tweaks */
   .hero-tagline h1 { font-size: 2.2rem; }
   .footer { padding-top: 10rem; margin-top: -8rem; }
-  .about-text-section { padding-top: 8rem; }
+  .about-text-section { 
+    padding: 12rem 2rem 12rem; 
+  }
+  
+  .about-text-inner p {
+    font-size: 1.05rem; /* Put the text back to a readable, normal size */
+    line-height: 1.6;
+  }
+  .contact-hero {
+    margin-top: -10rem; 
+  }
+  .contact-form-section {
+    margin-top: -4rem; 
+    padding-top: 0;
+  }
 }
 
 /* ============================================================

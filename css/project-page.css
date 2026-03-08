@@ -1,0 +1,511 @@
+/* ============================================================
+   SNACK NIGHT — Project Page Stylesheet
+   project-page.css
+
+   Loaded on individual project pages alongside styles.css:
+     <link rel="stylesheet" href="../css/styles.css">
+     <link rel="stylesheet" href="../css/project-page.css">
+
+   Contains:
+   - Back button bar
+   - Project layout grid
+   - Video + photo containers
+   - Nutrition label credits
+   - Responsive breakpoints for the above
+   ============================================================ */
+
+
+/* ============================================================
+   BACK BUTTON BAR (Positioned at bottom of grid)
+   ============================================================ */
+.project-back-bar {
+  grid-column: 2;
+  margin-top: -10rem; /* Space between the label and button */
+  text-align: left; /* Centers button relative to the label above it */
+  width: 100%;
+}
+
+.project-back-btn {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--yellow);
+  color: var(--green-dark);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  text-transform: lowercase;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.project-back-btn:hover {
+  background: var(--yellow-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.35);
+}
+
+
+/* ============================================================
+   PROJECT PAGE SHELL
+   ============================================================ */
+.project-page {
+  background: var(--green-dark);
+  min-height: 100vh;
+}
+
+.project-layout {
+  max-width: 1100px;
+  margin: -8rem auto 0; /* Pulls the video/label up into the empty nav space */
+  padding: 0 2rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 3rem;
+  align-items: start;
+}
+
+
+/* ============================================================
+   LEFT COLUMN: VIDEO + PHOTO GRID
+   ============================================================ */
+.project-photos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.project-photo-main {
+  aspect-ratio: 16/10;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+}
+
+.project-photo-main img,
+.project-photo-main video,
+.project-photo-main iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.project-photo-grid-item {
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+}
+
+.project-photo-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-photo-grid-item:hover img {
+  transform: scale(1.03);
+}
+
+
+/* ============================================================
+   RIGHT COLUMN: NUTRITION LABEL CREDITS
+   ============================================================ */
+.nutrition-main {
+  border-top: 10px solid var(--green-dark);
+  margin-top: 4px;
+}
+
+.nutrition-label {
+  background: var(--cream);
+  border: 2px solid var(--green-dark);
+  padding: 0.6rem;
+  color: var(--green-dark);
+  font-family: var(--font-body);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+.nutrition-label-title {
+  font-family: var(--font-body-bold);
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+  margin-bottom: 0.25rem;
+}
+
+.nutrition-label-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.nutrition-label-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 8px solid var(--green-dark);
+  padding: 0.3rem 0;
+  margin: 0.4rem 0;
+}
+
+.nutrition-label-type .label {
+  font-family: var(--font-body-bold);
+  font-size: 0.85rem;
+}
+
+.nutrition-label-type .value {
+  font-family: var(--font-body-bold);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.nutrition-label-desc {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  margin: 0.2rem 0;
+}
+
+.nutrition-divider {
+  border: none;
+  border-top: 5px solid var(--green-dark);
+  margin: 0.5rem 0;
+}
+
+.nutrition-divider.thin {
+  border-top-width: 1px;
+  margin: 0.3rem 0;
+}
+
+.nutrition-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--green-dark); 
+  padding: 4px 0; 
+  line-height: 1.2; 
+}
+
+.nutrition-row:last-child {
+  border-bottom: none;
+}
+
+.nutrition-row.subhead {
+  border-bottom: 5px solid var(--green-dark);
+  padding: 2px 0;
+}
+
+.nutrition-row .role {
+  font-family: var(--font-body-bold);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.nutrition-label-text {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.nutrition-value {
+  font-weight: 400;
+  text-align: right;
+  flex: 1; /* Pushes the value to the far right */
+  margin-left: 10px;
+}
+
+.nutrition-row .role-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.75rem;
+  padding-left: 0.75rem;
+  display: block;
+}
+
+.nutrition-row .name {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-align: right;
+  max-width: 140px;
+}
+
+/* 1. Remove the line after Starring specifically */
+.last-row {
+  border-bottom: none !important;
+}
+
+/* 2. Style the Awards section */
+.nutrition-awards .role {
+  font-family: var(--font-body-bold);
+  font-weight: 700;
+}
+
+.nutrition-awards .award-value {
+  font-family: var(--font-body); /* Switches to the regular weight font */
+  font-weight: 400;             /* Ensures it is not bold */
+  text-transform: none;         /* Optional: keeps it from being all-caps if inherited */
+}
+
+.nutrition-footnote {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  padding-top: 0.4rem;
+  color: var(--green-dark);
+}
+
+/* ============================================================
+   PROJECT DESCRIPTION (Full Width)
+   ============================================================ */
+.project-description-container {
+  max-width: 900px;
+  width: 90%;     
+  margin: -2rem auto;
+  padding: 5% 12% 8%;  
+  background-image: url('../assets/images/paper-texture.webp'); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(-1deg);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.project-description-inner {
+  max-width: 650px; 
+  margin: 0 auto;
+}
+
+.description-heading {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  color: var(--yellow);
+  margin-bottom: 1.5rem;
+  text-transform: lowercase;
+}
+
+.description-content {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--green-dark);
+}
+
+.description-content p {
+  margin-bottom: 1.5rem;
+}
+
+
+/* ============================================================
+   CONTACT CTA (project page version)
+   ============================================================ */
+.project-contact-cta {
+  background: var(--green-dark);
+  padding: 0rem 2rem 0rem; /* <-- Killed top padding, expanded bottom to tuck under footer */
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.project-contact-cta a {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.project-contact-cta a:hover {
+  transform: scale(1.03);
+}
+
+.project-contact-cta img {
+  max-width: 350px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   MORE PROJECTS (project page version)
+   ============================================================ */
+
+
+/* --- Center the Label & Actions --- */
+.credits-section {
+  background: var(--green-dark);
+  padding: 2rem 2rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.credits-inner {
+  max-width: 450px; /* Keeps the label from getting too wide */
+  width: 100%;
+}
+
+.project-actions {
+  margin-top: 1.5rem;
+  display:flex;
+  text-align: center;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.lets-cook-btn {
+  background: var(--yellow);
+  color: var(--green-dark);
+}
+
+/* --- 3-Column Project Bar --- */
+.more-projects-bar {
+  background: var(--green-dark);
+  padding: 4rem; 
+  border-top: -2rem;
+}
+
+.project-card-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mini-card {
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mini-card:hover {
+  transform: translateY(-8px);
+}
+
+.mini-card-image {
+  aspect-ratio: 16/9;
+  border-radius: 8px; 
+  border: 3px solid var(--cream); 
+  margin-bottom: 1.2rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  overflow: hidden;
+}
+
+.mini-card-info h3 {
+  font-family: var(--font-display);
+  color: var(--cream);
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  text-transform: capitalize;
+}
+
+.mini-card-info span {
+  font-family: var(--font-body);
+  color: var(--cream);
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+/* Hover States */
+.mini-card:hover {
+  transform: translateY(-10px) rotate(1deg);
+}
+
+.mini-card:hover .mini-card-image {
+  border-color: var(--yellow);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2); 
+}
+
+.mini-card:hover .mini-card-info h3 {
+  color: var(--yellow);
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLET (max 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+  .project-layout {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem 4rem;
+    gap: 2rem;
+  }
+
+  /* Nutrition label goes full width below the video */
+  .nutrition-label {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+.project-back-bar {
+    grid-column: 1; 
+    margin-top: 0rem;
+  }
+
+  .project-card-row {
+    grid-template-columns: 1fr; /* Stack on smaller tablets/mobile */
+    max-width: 400px;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE (max 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+.project-back-btn {
+font-size: 1rem;
+padding: 0.65rem 1.5rem;
+}
+.project-layout {
+padding: 1.5rem 1.25rem 1.5rem;
+gap: 1.5rem;
+}
+
+.project-photo-grid {
+grid-template-columns: 1fr 1fr;
+gap: 0.5rem;
+}
+
+.nutrition-label {
+max-width: 100%;
+}
+
+.nutrition-label-title {
+font-size: 1.5rem;
+}
+
+.project-description-container {
+padding: 10% 12%; 
+margin: 0.5rem 1rem; 
+transform: rotate(0deg);
+}
+
+.description-heading {
+font-size: 2rem;
+text-align: center;
+}
+
+.description-content {
+font-size: 0.9rem;
+line-height: 1.4;
+}
+
+.project-contact-cta img {
+max-width: 280px;
+padding: 0rem 1.25rem 0rem;
+}
+
+}
