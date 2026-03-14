@@ -34,16 +34,14 @@
        SECTION: HERO VIDEO
   ============================================================ -->
   <section id="home" class="hero-section" aria-label="Hero video">
-    <div class="hero-video-wrapper">
-    <iframe 
-      title="vimeo-player" 
-      src="https://player.vimeo.com/video/1165380650?h=ae9c34aa50" 
-      frameborder="0" 
-      referrerpolicy="strict-origin-when-cross-origin" 
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-      allowfullscreen>
-    </iframe>    
-    </div>
+      <div class="vimeo-wrapper">
+        <iframe 
+          src="https://player.vimeo.com/video/1173619325?autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&controls=0&background=1" 
+          frameborder="0" 
+          allow="autoplay; fullscreen" 
+          allowfullscreen>
+        </iframe>
+      </div>
   </section>
 
   <div class="hero-tagline" aria-label="Tagline">
@@ -72,10 +70,7 @@
         <a class="project-card" href="projects/flirty-little-fling.html"
            aria-label="Flirty Little Fling by MADDIE">
           <div class="project-card-img">
-            <div class="card-placeholder" style="background:linear-gradient(135deg,#2B3A18,#4A6B28);">
-              <span class="card-placeholder-title">flirty little fling</span>
-              <span class="card-placeholder-sub">MADDIE</span>
-            </div>
+            <img src="assets/images/FLF1.gif" alt="Flirty Little Fling by MADDIE" loading="lazy">
           </div>
           
           <!-- Hover overlay -->
@@ -89,15 +84,13 @@
         <a class="project-card" href="projects/gravitational-wave.html"
            aria-label="Gravitational Wave">
           <div class="project-card-img">
-            <div class="card-placeholder" style="background:linear-gradient(135deg,#1a2a08,#3B5220);">
-              <span class="card-placeholder-title">gravitational wave</span>
-            </div>
+            <img src="assets/images/GW1.gif" alt="Gravitational Wave" loading="lazy">
           </div>
           <!-- Hover overlay -->
           <div class="card-arrow" aria-hidden="true"></div>
-          <div class="card-comment">wammie nominated music video</div>
+          <div class="card-comment">for the science lovers</div>
 
-          <div class="project-card-label">grav wave</div>
+          <div class="project-card-label">Gravitational Wave</div>
         </a>
 
 
@@ -105,34 +98,30 @@
         <a class="project-card" href="projects/mysterious-savory-grains.html"
            aria-label="Mysterious Savory Grains">
           <div class="project-card-img">
-            <div class="card-placeholder" style="background:linear-gradient(135deg,#2B3A18,#5B4A10);">
-              <span class="card-placeholder-title">mysterious<br>savory grains</span>
-            </div>
+            <img src="assets/images/MSG1.gif" alt="Mysterious Savory Grains" loading="lazy">
           </div>
 
           <!-- Hover overlay -->
           <div class="card-arrow" aria-hidden="true"></div>
-          <div class="card-comment">wammie nominated music video</div>
+          <div class="card-comment">spoiler alert: it's delicious</div>
 
 
-          <div class="project-card-label">msg</div>
+          <div class="project-card-label">Mysterious Savory Grains</div>
         </a>
 
         <!-- Card 4: 10 Thousand Cuts (bottom-right) -->
         <a class="project-card" href="projects/ten-thousand-cuts.html"
-           aria-label="10 Thousand Cuts">
+           aria-label="Ten Thousand Cuts">
           <div class="project-card-img">
-            <div class="card-placeholder" style="background:linear-gradient(135deg,#18283A,#2A4060);">
-              <span class="card-placeholder-title">10 thousand cuts</span>
-            </div>
+            <img src="assets/images/HAIR1.gif" alt="Ten Thousand Cuts" loading="lazy">
           </div>
 
           <!-- Hover overlay -->
           <div class="card-arrow" aria-hidden="true"></div>
-          <div class="card-comment">wammie nominated music video</div>
+          <div class="card-comment">hairbrained awards finalist!!</div>
 
 
-          <div class="project-card-label">haircut</div>
+          <div class="project-card-label">Ten Thousand Cuts</div>
         </a>
       </div><!-- .projects-grid -->
     </div><!-- .projects-section-inner -->
@@ -210,10 +199,11 @@
           <img src="assets/images/dropusaline.png" alt="Let's get cookin', drop us a line" style="max-width: 350px; height: auto;">
                 
         <dotlottie-player 
+          class="contact-fish"
           src="assets/images/fish-hook.lottie" 
           background="transparent"  
           speed="1"  
-          style="width: 250px; height: 250px; margin-left: -10rem; margin-top: 2.2rem;" 
+          style="width: 250px; height: 250px;" 
           loop 
           autoplay>
         </dotlottie-player>
