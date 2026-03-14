@@ -10,14 +10,8 @@
 
 /* --- Lacquer: Google Fonts — loads automatically, no file needed --- */
 @import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Modak&display=swap');
 
-/* --- Fallbacks for Joy + Garet until real font files are added --- */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap');
-
-/* ============================================================
-   HOW TO ADD JOY + GARET (Canva-downloaded fonts)
-
-  /* --- Real Fonts (uncomment when font files are added to /assets/fonts/) --- */
 @font-face {
   font-family: 'Joy';
   src: url('../assets/fonts/Joy.otf') format('opentype');
@@ -553,8 +547,8 @@ img, video {
 }
 
 /* ============================================================
-   HOME PAGE — HERO
-   ============================================================ */
+  HOME PAGE — HERO
+  ============================================================ */
 .hero-section {
   background: var(--green-dark);
   padding: 0;
@@ -566,59 +560,28 @@ img, video {
   margin-top: -12rem;
 }
 
-.hero-video-wrapper {
+/* This is the "window" that restricts what the user sees */
+.vimeo-wrapper {
   position: relative;
-  width: 1100px;
-  max-width: 100vw;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-  margin: 0;
+  width: 1100px; 
+  max-width: 100vw; 
+  aspect-ratio: 4 / 3; /* Matches your video exactly */
+  overflow: hidden; /* Hides the messy edges */
+  margin: 0 auto;
+  background-color: var(--green-dark);
+}
+
+/* This targets the iframe and makes it oversized */
+.vimeo-wrapper iframe {
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  width: 100%; /* Scaled up just enough to push the UI off-screen */
+  height: 100%; /* Matches the width to keep the native 4:3 ratio */
+  transform: translate(-50%, -50%) scale(1.15); /* Centers the video perfectly */
+  pointer-events: none; /* Stops users from clicking or pausing it */
 }
 
-.hero-video-wrapper video,
-.hero-video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.hero-poster {
-  position: absolute;
-  inset: 0;
-  background: #1a1a1a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.hero-play-btn {
-  width: 80px;
-  height: 80px;
-  background: rgba(201, 162, 39, 0.85);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.hero-play-btn:hover {
-  transform: scale(1.1);
-  background: var(--yellow);
-}
-
-.hero-play-btn svg {
-  width: 32px;
-  height: 32px;
-  fill: white;
-  margin-left: 4px;
-}
 
 /* Hero tagline */
 .hero-tagline {
@@ -837,7 +800,7 @@ min-height: 100vh;
 }
 
 .projects-section-inner {
-max-width: 800px;
+max-width: 900px;
 margin: 0 auto;
 padding: 0 2.5rem 5rem;
 position: relative;
@@ -891,21 +854,22 @@ transition: color 0.3s ease;
   display: grid;
   grid-template-columns: 1fr 1fr; 
   grid-template-rows: auto auto;
-  gap: 3rem;
+  gap: 3.5rem 7rem;
   position: relative;
   z-index: 20;
 }
 
 /* Standardized cards */
 .project-card {
-position: relative;
-cursor: pointer;
-display: block;
-text-decoration: none;
-display: block;
-z-index: 1; /* Important for the hover stacking */
-transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
-
+  position: relative;
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  z-index: 1;
+  transform: scale(1.15) translate(0, 0);
+  transform-origin: center;
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
 }
 
 .project-card:hover {
@@ -936,18 +900,20 @@ transition: transform 0.4s ease;
 .project-card-label {
   position: absolute;
   top: 6%;
-  left: calc(100% + 2px);
+  left: calc(100% + 10px);
   writing-mode: vertical-rl;
   text-orientation: mixed;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--cream);
   text-transform: lowercase;
   letter-spacing: 0.05em;
   opacity: 0.85;
-  white-space: nowrap;
   transition: color 0.2s ease, opacity 0.2s ease;
+  white-space: normal;
+  max-height: 85%; 
+  line-height: .8;
 }
 
 .project-card:hover .project-card-label {
@@ -965,56 +931,34 @@ transition: transform 0.4s ease;
   opacity: 0;
 }
 
-/* ---- Base project card setup ---- */
-.project-card {
-  position: relative;
-  display: block;
-  z-index: 1;
-  transform: scale(1) translate(0, 0);
-  transform-origin: center;
-  will-change: transform;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease, z-index 0s;
-}
-
-
-
-/* ---- DESKTOP DECK STACKING HOVER EFFECT ---- */
-@media (min-width: 901px) {
-  /* Define the exact center of the grid for each card based on our 3rem gap */
-  /* 50% moves it across its own width, 1.5rem moves it across half the gap */
-  .project-card:nth-child(1) { --center-x: calc(50% + 1.5rem);  --center-y: calc(50% + 1.5rem); }
-  .project-card:nth-child(2) { --center-x: calc(-50% - 1.5rem); --center-y: calc(50% + 1.5rem); }
-  .project-card:nth-child(3) { --center-x: calc(50% + 1.5rem);  --center-y: calc(-50% - 1.5rem); }
-  .project-card:nth-child(4) { --center-x: calc(-50% - 1.5rem); --center-y: calc(-50% - 1.5rem); }
-
-/* Unhovered titles disappear */
+/* Unhovered titles disappear (Kept outside media query so it works cleanly) */
 .projects-grid:has(.project-card:hover) .project-card:not(:hover) .project-card-label {
   opacity: 0;
 }
 
 /* ---- DESKTOP DECK STACKING HOVER EFFECT ---- */
 @media (min-width: 901px) {
-  /* Define the exact center of the grid for each card based on our 3rem gap */
-  .project-card:nth-child(1) { --center-x: calc(50% + 1.5rem);  --center-y: calc(50% + 1.5rem); }
-  .project-card:nth-child(2) { --center-x: calc(-50% - 1.5rem); --center-y: calc(50% + 1.5rem); }
-  .project-card:nth-child(3) { --center-x: calc(50% + 1.5rem);  --center-y: calc(-50% - 1.5rem); }
-  .project-card:nth-child(4) { --center-x: calc(-50% - 1.5rem); --center-y: calc(-50% - 1.5rem); }
+  /* Define the exact center of the grid for each card */
+  .project-card:nth-child(1) { --center-x: calc(50% + 3.5rem);  --center-y: calc(50% + 1.5rem); }
+  .project-card:nth-child(2) { --center-x: calc(-50% - 3.5rem); --center-y: calc(50% + 1.5rem); }
+  .project-card:nth-child(3) { --center-x: calc(50% + 3.5rem);  --center-y: calc(-50% - 1.5rem); }
+  .project-card:nth-child(4) { --center-x: calc(-50% - 3.5rem); --center-y: calc(-50% - 1.5rem); }
 
   /* 1. The Hovered Card: moves to exact center and scales up */
   .projects-grid:has(.project-card:hover) .project-card:hover {
     transform: translate(var(--center-x), var(--center-y)) scale(1.25);
-    z-index: 50 ;
+    z-index: 50;
   }
 
   /* 2. Spread the stack OUT more so they actually peek from behind the scaled-up front card */
   .projects-grid:has(.project-card:hover) .project-card:nth-child(1):not(:hover) {
     transform: translate(calc(var(--center-x) - 45px), calc(var(--center-y) - 35px)) scale(1) rotate(-8deg);
     z-index: 10;
-    opacity: 0.5 ;
+    opacity: 0.5;
   }
   .projects-grid:has(.project-card:hover) .project-card:nth-child(2):not(:hover) {
-    transform: translate(calc(var(--center-x) + 55px), calc(var(--center-y) - 25px)) scale(1) rotate(10deg) ;
-    z-index: 11 ;
+    transform: translate(calc(var(--center-x) + 55px), calc(var(--center-y) - 25px)) scale(1) rotate(10deg);
+    z-index: 11;
     opacity: 0.5;
   }
   .projects-grid:has(.project-card:hover) .project-card:nth-child(3):not(:hover) {
@@ -1027,7 +971,6 @@ transition: transform 0.4s ease;
     z-index: 13;
     opacity: 0.5;
   }
-}
 }
 
 /* --- Arrow: shoots out of card edge toward center gap --- */
@@ -1131,7 +1074,7 @@ transition: transform 0.4s ease;
 .contact-fish {
   opacity: 0.9;
   transform: scale(1.35);
-  margin-left: -11rem;
+  margin-left: -11.1rem;
   margin-top: -1.5rem;
 }
 
@@ -2029,7 +1972,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   border-radius: 6px;
   padding: 0.2rem 0.5rem;
   position: absolute;
-  bottom: calc(100% + 10px);
+  bottom: calc(100% - 2px);
   left: 50%;
   transform: translateX(-50%) rotate(-2deg) translateY(6px);
   pointer-events: none;

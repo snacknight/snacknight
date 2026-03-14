@@ -64,7 +64,7 @@
   display: grid;
   grid-template-columns: 1fr 380px;
   gap: 3rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 
@@ -78,44 +78,76 @@
 }
 
 .project-photo-main {
-  aspect-ratio: 16/10;
   border-radius: 8px;
   overflow: hidden;
-  background: #111;
+  background: var(--green-dark);
+  width: 100%;
 }
 
 .project-photo-main img,
 .project-photo-main video,
 .project-photo-main iframe {
   width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-photo-main iframe {
+  width: 100%;
   height: 100%;
-  object-fit: cover;
+  display: block;
 }
 
 .project-photo-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  display: flex; 
+  gap: 1rem;
+  overflow-x: scroll; 
+  scroll-snap-type: x mandatory; 
+  padding-bottom: 1.5rem; 
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: auto;
+  scrollbar-color: var(--yellow) rgba(252, 238, 223, 0.15);
+}
+
+.project-photo-grid::-webkit-scrollbar {
+  height: 8px;
+}
+.project-photo-grid::-webkit-scrollbar-track {
+  background: rgba(252, 238, 223, 0.15); /* A faint, semi-transparent cream */
+  border-radius: 10px;
+}
+
+.project-photo-grid::-webkit-scrollbar-thumb {
+  background-color: var(--yellow);
+  border-radius: 10px;
+}
+
+.project-photo-grid::-webkit-scrollbar-thumb:hover {
+  background-color: var(--yellow-bright);
 }
 
 .project-photo-grid-item {
-  aspect-ratio: 4/3;
+  flex: 0 0 auto; /* Prevents them from shrinking */
+  height: 400px; /* Forces all images to be the exact same height */
+  scroll-snap-align: start; /* Snaps the left edge of the photo to the left edge of the box */
   border-radius: 8px;
   overflow: hidden;
-  background: #111;
+  background: var(--green-dark);
 }
 
 .project-photo-grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto; /* Lets the width adjust naturally based on the fixed height */
+  height: 100%; /* Locks to the 400px container height */
+  display: block;
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
-.project-photo-grid-item:hover img {
-  transform: scale(1.03);
+@media (max-width: 768px) {
+  .project-photo-grid-item {
+    height: 300px; 
+  }
 }
-
 
 /* ============================================================
    RIGHT COLUMN: NUTRITION LABEL CREDITS
@@ -132,21 +164,27 @@
   color: var(--green-dark);
   font-family: var(--font-body);
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+  height: 100%; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
 }
 
 .nutrition-label-title {
   font-family: var(--font-body-bold);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 900;
   letter-spacing: -0.02em;
-  line-height: 1.0;
-  margin-bottom: 0.25rem;
+  line-height: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: .7rem;
 }
 
 .nutrition-label-subtitle {
   font-family: var(--font-body);
   font-size: 0.8rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 1rem;
 }
 
 .nutrition-label-type {
@@ -161,11 +199,13 @@
 .nutrition-label-type .label {
   font-family: var(--font-body-bold);
   font-size: 0.85rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 .nutrition-label-type .value {
   font-family: var(--font-body-bold);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -179,12 +219,12 @@
 .nutrition-divider {
   border: none;
   border-top: 5px solid var(--green-dark);
-  margin: 0.5rem 0;
+  margin: .5rem 0;
 }
 
 .nutrition-divider.thin {
   border-top-width: 1px;
-  margin: 0.3rem 0;
+  margin: 0.5rem 0;
 }
 
 .nutrition-row {
@@ -194,6 +234,8 @@
   border-bottom: 1px solid var(--green-dark); 
   padding: 4px 0; 
   line-height: 1.2; 
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 .nutrition-row:last-child {
@@ -235,7 +277,7 @@
   font-family: var(--font-body);
   font-size: 0.8rem;
   text-align: right;
-  max-width: 140px;
+  max-width: 65%;
 }
 
 /* 1. Remove the line after Starring specifically */
@@ -250,17 +292,17 @@
 }
 
 .nutrition-awards .award-value {
-  font-family: var(--font-body); /* Switches to the regular weight font */
-  font-weight: 400;             /* Ensures it is not bold */
-  text-transform: none;         /* Optional: keeps it from being all-caps if inherited */
+  font-family: var(--font-body); 
+  font-weight: 400;             
+  text-transform: none;        
 }
 
 .nutrition-footnote {
   font-family: var(--font-body);
   font-size: 0.68rem;
   line-height: 1.4;
-  margin-top: 0.5rem;
-  padding-top: 0.4rem;
+  margin-top: auto;
+  padding-top: .5rem;
   color: var(--green-dark);
 }
 
@@ -388,19 +430,21 @@
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.mini-card:hover {
-  transform: translateY(-8px);
-}
-
 .mini-card-image {
-  aspect-ratio: 16/9;
-  border-radius: 8px; 
-  border: 3px solid var(--cream); 
+  aspect-ratio: 4/3;
+  border-radius: 30px; 
+  border: 8px solid var(--cream); 
   margin-bottom: 1.2rem;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 0 0 rgba(0,0,0,0);
   overflow: hidden;
+}
+
+.mini-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .mini-card-info h3 {
@@ -420,12 +464,12 @@
 
 /* Hover States */
 .mini-card:hover {
-  transform: translateY(-10px) rotate(1deg);
+  transform: translateY(-10px) rotate(1deg) scale(1.1);
+  border: 5px;
 }
 
 .mini-card:hover .mini-card-image {
   border-color: var(--yellow);
-  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2); 
 }
 
 .mini-card:hover .mini-card-info h3 {
