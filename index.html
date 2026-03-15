@@ -21,8 +21,8 @@
       </button>
 
       <ul class="navbar-nav">
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#about">about</a></li>
+        <li><a href="../index.html#projects">projects</a></li>
+        <li><a href="../index.html#about">about</a></li>
         <li><a href="#contact">contact</a></li>
         <li><a href="#blog">blog</a></li>
       </ul>
@@ -125,6 +125,15 @@
           <div class="project-card-label">Ten Thousand Cuts</div>
         </a>
       </div><!-- .projects-grid -->
+      <div class="deck-dots" aria-label="Project navigation">
+        <button class="deck-hint" aria-label="Close deck">close</button>
+        <div class="deck-dots-row">
+          <button class="deck-dot active" data-index="0" aria-label="Project 1"></button>
+          <button class="deck-dot" data-index="1" aria-label="Project 2"></button>
+          <button class="deck-dot" data-index="2" aria-label="Project 3"></button>
+          <button class="deck-dot" data-index="3" aria-label="Project 4"></button>
+        </div>
+      </div>
     </div><!-- .projects-section-inner -->
   </section>
 
@@ -356,44 +365,24 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      window.SnackNight.initContactForm();
-    });
-  </script>
-
-  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 
   <script src="js/main.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      window.SnackNight.initContactForm();
-    });
-  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.querySelector('.navbar-toggle');
-      const navMenu = document.querySelector('.navbar-nav');
-
-      if (hamburger && navMenu) {
-        hamburger.addEventListener('click', (e) => {
-          e.preventDefault(); // Stops any weird default button behavior
-          hamburger.classList.toggle('active');
-          navMenu.classList.toggle('active');
-          console.log("Hamburger clicked!"); // A little test signal!
-        });
-
-        // Close menu when clicking a link
-        document.querySelectorAll('.navbar-nav a').forEach(link => {
-          link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          });
-        });
+      // Added a safety check here so it doesn't break if SnackNight isn't defined yet
+      if (window.SnackNight && window.SnackNight.initContactForm) {
+        window.SnackNight.initContactForm();
       }
     });
   </script>
+  <script src="js/deck.js"></script>
+
+  <div class="section-nav-container" id="navContainer">
+    <a href="#" class="section-nav-btn" id="backToTop" aria-label="Scroll up">↑ top</a>
+    <a href="#" class="section-nav-btn" id="scrollDown" aria-label="Scroll down">down ↓</a>
+  </div>
+
 </body>
 </html>

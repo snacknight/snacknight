@@ -79,7 +79,7 @@
 }
 
 .project-photo-main {
-  border-radius: 8px;
+  border-radius: 30px;
   overflow: hidden;
   background: var(--green-dark);
   width: 100%;
