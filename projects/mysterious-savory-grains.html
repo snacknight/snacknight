@@ -52,22 +52,37 @@
 
         <!-- Photo grid -->
         <div class="project-photo-grid">
-          <!--
-            ADD YOUR PHOTOS:
-            <img src="../assets/images/projects/flirty-little-fling-01.jpg" alt="Scene from Flirty Little Fling">
-          -->
           <div class="project-photo-grid-item">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#2a0a3e,#6B2A8A);display:flex;align-items:center;justify-content:center;"><span style="color:rgba(255,255,255,0.3);font-size:2rem;">📸</span></div>
+            <img src="../assets/images/projects/MSG1.JPEG" loading="lazy">          
           </div>
           <div class="project-photo-grid-item">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#3e0a1a,#8A2A4A);display:flex;align-items:center;justify-content:center;"><span style="color:rgba(255,255,255,0.3);font-size:2rem;">📸</span></div>
+            <img src="../assets/images/projects/MSG2.jpeg" loading="lazy">          
           </div>
           <div class="project-photo-grid-item">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a2a08,#4A6B28);display:flex;align-items:center;justify-content:center;"><span style="color:rgba(255,255,255,0.3);font-size:2rem;">📸</span></div>
+            <img src="../assets/images/projects/MSG3.jpg" loading="lazy">          
           </div>
           <div class="project-photo-grid-item">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1a3e,#2A4A8A);display:flex;align-items:center;justify-content:center;"><span style="color:rgba(255,255,255,0.3);font-size:2rem;">📸</span></div>
+            <img src="../assets/images/projects/MSG4.jpeg" loading="lazy">          
           </div>
+            <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/MSG5.jpeg" loading="lazy">          
+          </div>
+            <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/MSG6.jpg" loading="lazy">          
+          </div>
+            <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/MSG7.jpg" loading="lazy">          
+          </div>
+        </div>
+
+        <div class="photo-filmstrip">
+          <div class="filmstrip-thumb active" data-index="0"><img src="../assets/images/projects/MSG1.JPEG"></div>
+          <div class="filmstrip-thumb" data-index="1"><img src="../assets/images/projects/MSG2.jpeg"></div>
+          <div class="filmstrip-thumb" data-index="2"><img src="../assets/images/projects/MSG3.jpg"></div>
+          <div class="filmstrip-thumb" data-index="3"><img src="../assets/images/projects/MSG4.jpeg"></div>
+          <div class="filmstrip-thumb" data-index="4"><img src="../assets/images/projects/MSG5.jpeg"></div>
+          <div class="filmstrip-thumb" data-index="5"><img src="../assets/images/projects/MSG6.jpg"></div>
+          <div class="filmstrip-thumb" data-index="5"><img src="../assets/images/projects/MSG7.jpg"></div>
         </div>
 
       </div>
@@ -83,7 +98,8 @@
         </div>
 
         <div class="nutrition-label-desc">
-            Description here. 
+          To share his culture through food, Chef Tim Ma must defy monosodium glutamate's
+          unsavory reputation.
         </div>
 
         <hr class="nutrition-divider">
@@ -131,7 +147,7 @@
 
         <hr class="nutrition-divider"> <div class="nutrition-row nutrition-awards">
           <span class="role">Screenings</span>
-          <span class="name award-value">List all???</span>
+          <span class="name award-value">2023 DC Shorts International Film Festival <br> 2023 Ceres Food Film Festival <br> 2023 Bushwick Film Festival </span>
         </div>
 
         <div class="nutrition-footer">
@@ -148,27 +164,25 @@
       <h2 class="description-heading">the story</h2>
       <div class="description-content">
         <p>
-        When we met MADDIE and started talking about a music video for "Flirty Little Fling," 
-        she'd just dropped her debut EP and was stepping into an era as an independent artist. 
-        She had a clear vision: a music video about the revolving door of casual flings that never 
-        quite landed where she wanted. 
+        In 1968, the forces of racism and consumer activism collided to give monosodium
+        glutamate (MSG) its unsavory reputation. Today, chef Tim Ma is on a mission to change
+        that perception and use MSG as a way to share his culture through food. Through
+        interviews with Ma and two MSG experts, the documentary explores the origin of MSG's
+        stigma and how the ways we talk about food can be just as pervasive today.
         </p>
         <p>
-        The catch? Basically no budget. But we loved the concept, we loved MADDIE's energy, 
-        and honestly, we just wanted to see this thing exist. So we called in favors, leveraged our community, 
-        tapped every connection we had, and made it happen for under 2K.
+        With the stigma around MSG affecting mainly Asian cuisines, it became essential to
+        work with AAPI storytellers on both sides of the camera. Candid interviews with each of
+        the characters gave a structure to the film that was based on lived experience and
+        research, rather than the myths that have been spread about MSG.
         </p>
         <p>
-        As we talked through references and influences, a pattern emerged: 2000s rom-coms.
-        The pink nostalgia, playful typography, that slightly kitschy-but-sincere energy that makes you want to 
-        rewatch 13 Going on 30. We used that as our north star to build an entire visual ecosystem - the music video, 
-        a logo, social assets, holiday cards, artist photos, BTS content, and an EPK. Everything tied together, 
-        everything cohesive, everything MADDIE. 
-        </p>
-        <p>
-        She started using the brand identity we created across all her work, not just "Flirty Little Fling." 
-        It became hers. Flexible enough to grow with her, strong enough to define this new era. And in her words, 
-        the whole project made her "high school dreams" come true. 
+        These myths about MSG’s dangers and potency became a huge influence over the
+        style of the documentary. We drew inspiration from the imagery in drug PSAs and crime
+        movies of the 1960s and 1970s to force audiences to confront the misinformation
+        surrounding MSG. To set the historical record straight, archival footage and visuals from
+        Ma's restaurant weave together to illustrate the full timeline of MSG's place in American
+        cuisine.
         </p>
       </div>
     </div>
@@ -281,6 +295,29 @@
         navbarNav.classList.toggle('active');
       });
     }
+
+    const grid = document.querySelector('.project-photo-grid');
+    const thumbs = document.querySelectorAll('.filmstrip-thumb');
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const index = +thumb.dataset.index;
+        const target = grid.children[index];
+        target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    grid.addEventListener('scroll', () => {
+      const items = [...grid.children];
+      const closest = items.reduce((prev, curr) =>
+        Math.abs(curr.offsetLeft - grid.scrollLeft) < Math.abs(prev.offsetLeft - grid.scrollLeft) ? curr : prev
+      );
+      const index = items.indexOf(closest);
+      thumbs.forEach(t => t.classList.remove('active'));
+      if (thumbs[index]) thumbs[index].classList.add('active');
+    });
   </script>
 
 </body>

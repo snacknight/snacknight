@@ -565,10 +565,13 @@ img, video {
   position: relative;
   width: 1100px; 
   max-width: 100vw; 
-  aspect-ratio: 4 / 3; /* Matches your video exactly */
-  overflow: hidden; /* Hides the messy edges */
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
   margin: 0 auto;
   background-color: var(--green-dark);
+  border-radius: 30px;
+  mask-image: -webkit-radial-gradient(white, black);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 /* This targets the iframe and makes it oversized */
@@ -576,10 +579,10 @@ img, video {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%; /* Scaled up just enough to push the UI off-screen */
-  height: 100%; /* Matches the width to keep the native 4:3 ratio */
-  transform: translate(-50%, -50%) scale(1.15); /* Centers the video perfectly */
-  pointer-events: none; /* Stops users from clicking or pausing it */
+  width: 100%; 
+  height: 100%; 
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: none; 
 }
 
 
@@ -615,6 +618,7 @@ img, video {
 .about-page {
   background: var(--green-dark);
   margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
 .about-header h2 {
@@ -630,7 +634,8 @@ img, video {
 .about-header h2::after {
   content: "";
   position: absolute;
-  bottom: -25px;
+  bottom: -30px;
+  height: 30px;
   left: 50%;
   transform: translateX(-50%);
   width: 200%;
@@ -642,7 +647,7 @@ img, video {
 
 .about-header {
   text-align: center;
-  padding: 4rem 2rem 0rem;
+  padding: 4rem 2rem 2rem;
   position: relative;
 }
 
@@ -659,8 +664,9 @@ img, video {
 
 .portrait-card {
   position: relative;
-  width: 280px;
-  flex-shrink: 0;
+  width: 22%;
+  min-width: 200px;
+  flex-shrink: 1;
 }
 
 /* The new chunky frame for the photos */
@@ -704,6 +710,8 @@ img, video {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  flex: 1;
+  max-width: 300px;
   padding: 0 1rem;
   position: relative;
 }
@@ -796,19 +804,18 @@ img, video {
   ============================================================ */
 .work-page {
 background: var(--green-dark);
-min-height: 100vh;
+min-height: auto;
 }
 
 .projects-section-inner {
-max-width: 900px;
+max-width: 1100px;
 margin: 0 auto;
 padding: 0 2.5rem 5rem;
 position: relative;
-margin-top: -5rem;
-margin-bottom: -5rem;
+margin-top: -3rem;
+margin-bottom: -2rem;
 }
 
-/* "projects" pill blob — floats in center of grid */
 .projects-center-label {
   position: relative;
   margin: 0 auto 4rem auto;
@@ -854,9 +861,11 @@ transition: color 0.3s ease;
   display: grid;
   grid-template-columns: 1fr 1fr; 
   grid-template-rows: auto auto;
-  gap: 3.5rem 7rem;
+  gap: 5rem 9rem;
   position: relative;
   z-index: 20;
+  padding: 0 4rem;
+  background-size: contain;
 }
 
 /* Standardized cards */
@@ -904,7 +913,7 @@ transition: transform 0.4s ease;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--cream);
   text-transform: lowercase;
@@ -919,25 +928,23 @@ transition: transform 0.4s ease;
 .project-card:hover .project-card-label {
   color: var(--yellow);
   opacity: 1;
-  font-size: 1.75rem;
+  font-size: 2rem;
+  left: calc(100% + 20px); 
 }
 
-.project-card:hover .project-card-label {
-  color: var(--yellow);
-  opacity: 1;
-}
+@media (max-width: 1150px) and (min-width: 901px) {
+  .projects-grid {
+    gap: 5rem 6rem; /* Tighten the horizontal gap between cards */
+  }
 
-.projects-grid:has(.project-card:hover) .project-card:not(:hover) .project-card-label {
-  opacity: 0;
-}
-
-/* Unhovered titles disappear (Kept outside media query so it works cleanly) */
-.projects-grid:has(.project-card:hover) .project-card:not(:hover) .project-card-label {
-  opacity: 0;
+  .project-card-label {
+    font-size: 1.3rem; /* Shrink the font slightly so it takes up less horizontal space */
+    left: calc(100% + 5px); /* Pull it closer to the card image */
+  }
 }
 
 /* ---- DESKTOP DECK STACKING HOVER EFFECT ---- */
-@media (min-width: 901px) {
+@media (min-width: 769px) {
   /* Define the exact center of the grid for each card */
   .project-card:nth-child(1) { --center-x: calc(50% + 3.5rem);  --center-y: calc(50% + 1.5rem); }
   .project-card:nth-child(2) { --center-x: calc(-50% - 3.5rem); --center-y: calc(50% + 1.5rem); }
@@ -952,40 +959,30 @@ transition: transform 0.4s ease;
 
   /* 2. Spread the stack OUT more so they actually peek from behind the scaled-up front card */
   .projects-grid:has(.project-card:hover) .project-card:nth-child(1):not(:hover) {
-    transform: translate(calc(var(--center-x) - 45px), calc(var(--center-y) - 35px)) scale(1) rotate(-8deg);
+    transform: translate(calc(var(--center-x) - 45px), calc(var(--center-y) - 35px)) scale(1.2) rotate(-8deg);
     z-index: 10;
-    opacity: 0.5;
+    opacity: 0.1;
   }
   .projects-grid:has(.project-card:hover) .project-card:nth-child(2):not(:hover) {
-    transform: translate(calc(var(--center-x) + 55px), calc(var(--center-y) - 25px)) scale(1) rotate(10deg);
+    transform: translate(calc(var(--center-x) + 55px), calc(var(--center-y) - 25px)) scale(1.2) rotate(10deg);
     z-index: 11;
-    opacity: 0.5;
+    opacity: 0.1;
   }
   .projects-grid:has(.project-card:hover) .project-card:nth-child(3):not(:hover) {
-    transform: translate(calc(var(--center-x) - 35px), calc(var(--center-y) + 45px)) scale(1) rotate(-6deg);
+    transform: translate(calc(var(--center-x) - 35px), calc(var(--center-y) + 45px)) scale(1.2) rotate(-6deg);
     z-index: 12;
-    opacity: 0.5;
+    opacity: 0.1;
   }
   .projects-grid:has(.project-card:hover) .project-card:nth-child(4):not(:hover) {
-    transform: translate(calc(var(--center-x) + 45px), calc(var(--center-y) + 55px)) scale(1) rotate(7deg);
+    transform: translate(calc(var(--center-x) + 45px), calc(var(--center-y) + 55px)) scale(1.2) rotate(7deg);
     z-index: 13;
-    opacity: 0.5;
+    opacity: 0.1;
+  }
+  .projects-grid:has(.project-card:hover) .project-card:not(:hover) .project-card-label {
+    opacity: 0;
   }
 }
 
-/* --- Arrow: shoots out of card edge toward center gap --- */
-.card-arrow {
-  position: absolute;
-  width: 130px;
-  height: 130px;
-  background-image: url('../assets/images/arrow.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
 
 /* --- Comment box: navbar tooltip style --- */
 .card-comment {
@@ -1007,18 +1004,16 @@ transition: transform 0.4s ease;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  
-  /* Position on the left side, centered vertically */
   top: 85%;
-  right: calc(100% + 25px);
+  right: calc(100% - 80px);
   transform: translateY(-50%) translateX(15px); /* Starts slightly pulled in */
 }
 
 /* --- Arrow: points left, shoots from the card to the box --- */
 .card-arrow {
   position: absolute;
-  width: 160px;
-  height: 130px;
+  width: 100px;
+  height: 70px;
   background-image: url('../assets/images/arrow.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -1026,18 +1021,14 @@ transition: transform 0.4s ease;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
-
-  /* Anchor to the left side */
-  top: 50%;
-  right: calc(100% - 10px); 
-  /* scaleX(-1) flips the arrow to point left */
-  transform: translateY(-50%) scaleX(-1) translateX(-15px);
+  top: 70%;
+  right: calc(100% + 3px); 
 }
 
 /* Hover triggers for the unified left-side elements */
 .project-card:hover .card-arrow {
   opacity: 1;
-  transform: translateY(-50%) scaleX(-1) translateX(0);
+  transform: translateY(-60%) scaleX(-1) translateX(0) rotate(20deg);
 }
 
 .project-card:hover .card-comment {
@@ -1349,152 +1340,6 @@ transition: transform 0.4s ease;
   font-style: italic;
 }
 
-
-
-/* ============================================================
-MISC & RESPONSIVE
-============================================================ */
-.section-scroll-target {
-  scroll-margin-top: 110px;
-}
-
-.card-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 1rem;
-}
-
-.card-placeholder-title {
-  font-family: var(--font-display);
-  color: var(--cream);
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-align: center;
-  line-height: 1.3;
-}
-
-.card-placeholder-sub {
-  font-family: var(--font-display);
-  color: var(--yellow);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.stagger-in > * {
-  opacity: 1;
-  animation: cardReveal 0.45s ease backwards;
-}
-
-.stagger-in > *:nth-child(1) { animation-delay: 0.05s; }
-.stagger-in > *:nth-child(2) { animation-delay: 0.12s; }
-.stagger-in > *:nth-child(3) { animation-delay: 0.19s; }
-.stagger-in > *:nth-child(4) { animation-delay: 0.26s; }
-
-@keyframes cardReveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================================================
-   RESPONSIVE (TABLET & MOBILE)
-   ============================================================ */
-@media (max-width: 900px) {
-  /* Projects Grid Layout */
-  .projects-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 0 1rem 4rem;
-  }
-  
-  /* Disable the desktop hover translations */
-  .project-card:nth-child(n) { margin-top: 0; transform: none !important; }
-  
-  /* Decision A: Project Cards (Show labels, hide arrow) */
-  .card-arrow { 
-    display: none !important; 
-  }
-  
-  /* Move vertical text to horizontal, centered under the image */
-  .project-card-label {
-    position: relative;
-    writing-mode: horizontal-tb;
-    top: auto;
-    left: auto;
-    transform: none;
-    display: block;
-    text-align: center;
-    margin-top: 1rem;
-    opacity: 1; 
-    color: var(--yellow); 
-    font-size: 1.5rem;
-  }
-  
-  /* Stack the wammie comment box permanently under the title */
-  .card-comment {
-    position: relative;
-    opacity: 1;
-    transform: none !important;
-    top: auto;
-    right: auto;
-    margin: 0.5rem auto 0;
-    display: block;
-  }
-
-  /* About Section Stack */
-  .about-portraits {
-    flex-direction: column;
-    align-items: center;
-  }
-  .about-blobs { 
-    order: -1; 
-    margin: 2rem 0;
-  }
-  
-  /* Decision B: Hide the arrows pointing at portraits */
-  .about-blob-item img[src*="arrow.png"] {
-    display: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Navbar adjustments */
-  .navbar-nav {
-    display: none; /* Hidden until hamburger is clicked */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--cream);
-    flex-direction: column;
-    gap: 0;
-    padding: 1rem 0;
-    border-top: 1px solid rgba(43, 58, 24, 0.15);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
-  .navbar-toggle { display: block; }
-  
-  /* Portrait sizing */
-  .portrait-card { width: 240px; }
-  
-  /* Decision C: Contact Fish Shrink */
-  .contact-blob-wrap {
-    transform: scale(0.7); /* Shrinks the text and fish together perfectly */
-    transform-origin: center;
-    margin-left: -1rem; 
-  }
-  
-  /* Typography & Spacing tweaks for small screens */
-  .hero-tagline h1 { font-size: 2.2rem; }
-  .footer { padding-top: 10rem; margin-top: -8rem; }
-  .about-text-section { padding-top: 8rem; }
-}
-
 /* ============================================================
 BLOG SECTION TITLE (on home page the blog is an h2)
 ============================================================ */
@@ -1528,9 +1373,6 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   z-index: -1; 
 }
 
-/* ============================================================
-   LOADING STATE
-   ============================================================ */
 /* ============================================================
    MISC, UTILITIES & RESPONSIVE
    ============================================================ */
@@ -1566,71 +1408,97 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   font-weight: 600;
 }
 
-/* Restores the fade-in animation on scroll */
-.stagger-in > * {
-  opacity: 1;
-  animation: cardReveal 0.45s ease backwards;
-}
-.stagger-in > *:nth-child(1) { animation-delay: 0.05s; }
-.stagger-in > *:nth-child(2) { animation-delay: 0.12s; }
-.stagger-in > *:nth-child(3) { animation-delay: 0.19s; }
-.stagger-in > *:nth-child(4) { animation-delay: 0.26s; }
-
-@keyframes cardReveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 /* ------------------------------------------------------------
    TABLET & MOBILE BREAKPOINTS
    ------------------------------------------------------------ */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
-    max-width: 400px;
+    max-width: 450px;
     margin: 0 auto;
     padding: 0 1rem 0rem;
+    gap: 3rem
   }
-  
-  /* Disable the desktop hover translations */
-  .project-card:nth-child(n) { transform: none !important; }
-  
-  .card-arrow { display: none !important; }
-  
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: none !important;
+    gap: 0.25rem;
+  }
+
+  /* 1. Project Image at top */
+  .project-card-img {
+    order: 1;
+    width: 100%;
+  }
+
+  /* 2. Project Label in the middle */
   .project-card-label {
+    order: 2; 
     position: relative;
     writing-mode: horizontal-tb;
     top: auto;
     left: auto;
-    transform: none;
+    margin: .25rem 0 0.25rem 0; 
     display: block;
     text-align: center;
-    margin-top: 1rem;
-    opacity: 1; 
-    color: var(--yellow); 
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--cream); 
+    width: 100%;
   }
-  
+
+  /* 3. Commentary at bottom */
   .card-comment {
+    order: 3;
     position: relative;
     opacity: 1;
     transform: none !important;
     top: auto;
     right: auto;
-    margin: 0.5rem auto 0;
+    margin: 0 auto;
     display: block;
+    max-width: 90%;
+    padding: 0.4rem 0.8rem;
   }
+
+  /* Keep the arrow hidden on narrow screens */
+  .card-arrow { display: none !important; }
+
+  /* Disable the desktop hover translations */
+  .project-card:nth-child(n) { transform: none !important; }
+  
+  .project-card:hover .project-card-img {
+    transform: scale(1.05) rotate(2deg); 
+  }
+  
+  .project-card:hover .project-card-label {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    color: var(--yellow);
+    font-size: 2rem;
+  }
+
   .about-header {
-    padding-top: 1rem; 
+    padding-bottom: 1rem;
   }
 
   .about-portraits {
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
+    gap: 2.5rem;
+    flex-wrap: nowrap;
+    margin-top: 1.5rem;
   }
+
   .about-blobs { 
     display: none !important; 
+  }
+
+  .about-blob-item img[src*="arrow.png"] {
+  display: none !important;
   }
 }
 
@@ -1653,19 +1521,19 @@ BLOG SECTION TITLE (on home page the blog is an h2)
 
 .navbar-toggle { 
     display: block; 
-    padding: 1.5rem;       /* Huge tap target */
-    margin-left: auto;     /* Pushes it to the far right */
-    margin-bottom: 5rem;   /* Matches the logo so they sit on the same line! */
-    margin-top: -1rem;     /* Nudges it visually into the center of the cream paper */
+    padding: 1.5rem;       
+    margin-left: auto;    
+    margin-bottom: 5rem;   
+    margin-top: -1rem;     
     position: relative;
     z-index: 9999;
-    pointer-events: auto;  /* Guarantees it registers clicks */
+    pointer-events: auto; 
   }
 
   .navbar-nav.active {
     display: flex;
   }
-/* 2. Menu Items */
+
   .navbar-nav li {
     width: 100%;
     border-bottom: 1px solid rgba(43, 58, 24, 0.1);
@@ -1677,15 +1545,15 @@ BLOG SECTION TITLE (on home page the blog is an h2)
 
 .navbar-nav a {
     display: block;
-    padding: 1rem 1.5rem; /* Slightly tighter padding */
-    text-align: right;    /* Flushes the text to the right side */
+    padding: 1rem 1.5rem; 
+    text-align: right;   
     font-size: 1.4rem;
     width: 100%;
     position: relative;
     z-index: 1;
   }
 
-/* 3. Hide Tooltips AND Drawings on Mobile */
+
   .navbar-nav a::before,
   .navbar-nav a::after {
     display: none !important;
@@ -1695,17 +1563,21 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .navbar-toggle.active span:nth-child(2) { opacity: 0; }
   .navbar-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   
-  /* Portrait sizing */
+  .vimeo-wrapper {
+    border-radius: 20px; 
+    width: 95%;
+  }
+
   .portrait-card { width: 240px; }
   
-  /* Contact Fish Shrink */
+
   .contact-blob-wrap {
     transform: scale(0.7);
     transform-origin: center;
     margin-left: -1rem; 
   }
   
-/* Typography & Spacing tweaks */
+
   .hero-tagline h1 { font-size: 2.2rem; }
   .footer { padding-top: 10rem; margin-top: -8rem; }
   .about-text-section { 
@@ -1713,7 +1585,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   }
   
   .about-text-inner p {
-    font-size: 1.05rem; /* Put the text back to a readable, normal size */
+    font-size: 1.05rem; 
     line-height: 1.6;
   }
   .contact-hero {

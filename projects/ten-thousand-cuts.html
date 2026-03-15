@@ -49,10 +49,6 @@
 
         <!-- Photo grid -->
         <div class="project-photo-grid">
-          <!--
-            ADD YOUR PHOTOS:
-            <img src="../assets/images/projects/flirty-little-fling-01.jpg" alt="Scene from Flirty Little Fling">
-          -->
           <div class="project-photo-grid-item">
             <img src="../assets/images/projects/jj7.png" loading="lazy">          
           </div>
@@ -65,6 +61,13 @@
           <div class="project-photo-grid-item">
             <img src="../assets/images/projects/jj5.png" loading="lazy">          
           </div>
+        </div>
+
+        <div class="photo-filmstrip">
+          <div class="filmstrip-thumb active" data-index="0"><img src="../assets/images/projects/jj7.png"></div>
+          <div class="filmstrip-thumb" data-index="1"><img src="../assets/images/projects/jj2.png"></div>
+          <div class="filmstrip-thumb" data-index="2"><img src="../assets/images/projects/jj6.png"></div>
+          <div class="filmstrip-thumb" data-index="3"><img src="../assets/images/projects/jj5.png"></div>
         </div>
 
       </div>
@@ -271,6 +274,29 @@
         navbarNav.classList.toggle('active');
       });
     }
+
+        const grid = document.querySelector('.project-photo-grid');
+    const thumbs = document.querySelectorAll('.filmstrip-thumb');
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const index = +thumb.dataset.index;
+        const target = grid.children[index];
+        target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    grid.addEventListener('scroll', () => {
+      const items = [...grid.children];
+      const closest = items.reduce((prev, curr) =>
+        Math.abs(curr.offsetLeft - grid.scrollLeft) < Math.abs(prev.offsetLeft - grid.scrollLeft) ? curr : prev
+      );
+      const index = items.indexOf(closest);
+      thumbs.forEach(t => t.classList.remove('active'));
+      if (thumbs[index]) thumbs[index].classList.add('active');
+    });
   </script>
 
 </body>

@@ -48,27 +48,31 @@
 
         <!-- Photo grid -->
         <div class="project-photo-grid">
-          <!--
-            ADD YOUR PHOTOS:
-            <img src="../assets/images/projects/flirty-little-fling-01.jpg" alt="Scene from Flirty Little Fling">
-          -->
-         
-
           <div class="project-photo-grid-item">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#2a0a3e,#6B2A8A);display:flex;align-items:center;justify-content:center;"><span style="color:rgba(255,255,255,0.3);font-size:2rem;">📸</span></div>
+            <img src="../assets/images/projects/FLF_1.jpg" loading="lazy">          
           </div>
           <div class="project-photo-grid-item">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#3e0a1a,#8A2A4A);display:flex;align-items:center;justify-content:center;"><span style="color:rgba(255,255,255,0.3);font-size:2rem;">📸</span></div>
+            <img src="../assets/images/projects/FLF_2.jpg" loading="lazy">          
           </div>
           <div class="project-photo-grid-item">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a2a08,#4A6B28);display:flex;align-items:center;justify-content:center;"><span style="color:rgba(255,255,255,0.3);font-size:2rem;">📸</span></div>
+            <img src="../assets/images/projects/FLF_3.jpg" loading="lazy">          
           </div>
           <div class="project-photo-grid-item">
-            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1a3e,#2A4A8A);display:flex;align-items:center;justify-content:center;"><span style="color:rgba(255,255,255,0.3);font-size:2rem;">📸</span></div>
+            <img src="../assets/images/projects/FLF_4.png" loading="lazy">          
+          </div>
+            <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/FLF_5.jpg" loading="lazy">          
           </div>
         </div>
 
+        <div class="photo-filmstrip">
+          <div class="filmstrip-thumb active" data-index="0"><img src="../assets/images/projects/FLF_1.jpg"></div>
+          <div class="filmstrip-thumb" data-index="1"><img src="../assets/images/projects/FLF_2.jpg"></div>
+          <div class="filmstrip-thumb" data-index="2"><img src="../assets/images/projects/FLF_3.jpg"></div>
+          <div class="filmstrip-thumb" data-index="3"><img src="../assets/images/projects/FLF_4.png"></div>
+          <div class="filmstrip-thumb" data-index="4"><img src="../assets/images/projects/FLF_5.jpg"></div>
       </div>
+    </div>
 
       <!-- RIGHT: Nutrition Label Credits -->
       <aside class="nutrition-label" role="complementary" aria-label="Project credits">
@@ -275,6 +279,29 @@
         navbarNav.classList.toggle('active');
       });
     }
+
+    const grid = document.querySelector('.project-photo-grid');
+    const thumbs = document.querySelectorAll('.filmstrip-thumb');
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const index = +thumb.dataset.index;
+        const target = grid.children[index];
+        target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    grid.addEventListener('scroll', () => {
+      const items = [...grid.children];
+      const closest = items.reduce((prev, curr) =>
+        Math.abs(curr.offsetLeft - grid.scrollLeft) < Math.abs(prev.offsetLeft - grid.scrollLeft) ? curr : prev
+      );
+      const index = items.indexOf(closest);
+      thumbs.forEach(t => t.classList.remove('active'));
+      if (thumbs[index]) thumbs[index].classList.add('active');
+    });
   </script>
 
 </body>

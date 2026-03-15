@@ -91,6 +91,20 @@
 
         </div>
 
+        <div class="photo-filmstrip">
+          <div class="filmstrip-thumb active" data-index="0"><img src="../assets/images/projects/FLF_1.jpg"></div>
+          <div class="filmstrip-thumb" data-index="1"><img src="../assets/images/projects/FLF_2.jpg"></div>
+          <div class="filmstrip-thumb" data-index="2"><img src="../assets/images/projects/FLF_3.jpg"></div>
+          <div class="filmstrip-thumb" data-index="3"><img src="../assets/images/projects/FLF_4.png"></div>
+          <div class="filmstrip-thumb" data-index="4"><img src="../assets/images/projects/FLF_5.jpg"></div>
+          <div class="filmstrip-thumb" data-index="5"><img src="../assets/images/projects/FLF_6.jpg"></div>
+          <div class="filmstrip-thumb" data-index="6"><img src="../assets/images/projects/FLF_7.jpg"></div>
+          <div class="filmstrip-thumb" data-index="7"><img src="../assets/images/projects/FLF_8.jpg"></div>
+          <div class="filmstrip-thumb" data-index="8"><img src="../assets/images/projects/FLF_9.jpg"></div>
+          <div class="filmstrip-thumb" data-index="9"><img src="../assets/images/projects/FLF_10.jpg"></div>
+          <div class="filmstrip-thumb" data-index="10"><img src="../assets/images/projects/FLF_11.jpg"></div>
+        </div>
+
       </div>
 
       <!-- RIGHT: Nutrition Label Credits -->
@@ -309,6 +323,29 @@
         navbarNav.classList.toggle('active');
       });
     }
+
+    const grid = document.querySelector('.project-photo-grid');
+    const thumbs = document.querySelectorAll('.filmstrip-thumb');
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const index = +thumb.dataset.index;
+        const target = grid.children[index];
+        target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    grid.addEventListener('scroll', () => {
+      const items = [...grid.children];
+      const closest = items.reduce((prev, curr) =>
+        Math.abs(curr.offsetLeft - grid.scrollLeft) < Math.abs(prev.offsetLeft - grid.scrollLeft) ? curr : prev
+      );
+      const index = items.indexOf(closest);
+      thumbs.forEach(t => t.classList.remove('active'));
+      if (thumbs[index]) thumbs[index].classList.add('active');
+    });
   </script>
 
 </body>
