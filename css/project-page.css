@@ -167,6 +167,7 @@
 @media (max-width: 768px) {
   .project-photo-grid-item {
     height: auto;
+    width: 85vw; 
     max-width: 85vw;
     aspect-ratio: 4/3;
   }
