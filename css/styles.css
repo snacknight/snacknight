@@ -1458,6 +1458,11 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .vimeo-wrapper {
     width: 95%;
   }
+  
+  .vimeo-wrapper::after {
+  border-width: 30px;
+  border-radius: 40px;
+  }
 
   .portrait-card { width: 240px; }
   
@@ -1559,8 +1564,9 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .project-card.mobile-active .card-comment {
     opacity: 1;
   }
-  /* Keep the arrow hidden on narrow screens */
+
   .card-arrow { display: none !important; }
+  .deck-dots { display: none !important; }
 
   .about-header {
     padding-bottom: 1rem;

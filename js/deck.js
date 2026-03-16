@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const section = document.querySelector('#projects');
   let locked = false;
   let activeIndex = 0;
+  if (window.innerWidth <= 768) return;
 
   function setActive(i) {
     activeIndex = ((i % cards.length) + cards.length) % cards.length; // wraps both directions
