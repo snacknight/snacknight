@@ -108,12 +108,10 @@
   padding-right: 3rem;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  scrollbar-color: var(--yellow) var(--cream);
 }
 
 .project-photo-grid::-webkit-scrollbar {
   height: 8px;
-  display: block; 
   display: none
 }
 
@@ -168,7 +166,9 @@
 
 @media (max-width: 768px) {
   .project-photo-grid-item {
-    height: 300px; 
+    height: auto;
+    max-width: 85vw;
+    aspect-ratio: 4/3;
   }
 }
 
@@ -255,7 +255,7 @@
   justify-content: space-between;
   align-items: baseline;
   border-bottom: 1px solid var(--green-dark); 
-  padding: 4px 0; 
+  padding: 4px 0 12px 0; 
   line-height: 1.2; 
   margin-top: .5rem;
   margin-bottom: .5rem;
@@ -488,7 +488,6 @@
 /* Hover States */
 .mini-card:hover {
   transform: translateY(-10px) rotate(1deg) scale(1.1);
-  border: 5px;
 }
 
 .mini-card:hover .mini-card-image {
@@ -525,6 +524,19 @@
     grid-template-columns: 1fr; /* Stack on smaller tablets/mobile */
     max-width: 400px;
   }
+
+  .mini-card:active {
+  transform: scale(0.97);
+  }
+
+  .mini-card:active .mini-card-image {
+    border-color: var(--yellow);
+  }
+
+  .mini-card:active .mini-card-info h3 {
+    color: var(--yellow);
+  }
+
 }
 
 
@@ -541,11 +553,6 @@ padding: 1.5rem 1.25rem 1.5rem;
 gap: 1.5rem;
 }
 
-.project-photo-grid {
-grid-template-columns: 1fr 1fr;
-gap: 0.5rem;
-}
-
 .nutrition-label {
 max-width: 100%;
 }
@@ -555,9 +562,10 @@ font-size: 1.5rem;
 }
 
 .project-description-container {
-padding: 10% 12%; 
-margin: 0.5rem 1rem; 
-transform: rotate(0deg);
+  padding: 18% 16% 12%; 
+  margin: 1rem auto; 
+  width: 95%; 
+  transform: rotate(0deg);
 }
 
 .description-heading {

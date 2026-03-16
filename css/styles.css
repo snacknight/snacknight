@@ -10,7 +10,6 @@
 
 /* --- Lacquer: Google Fonts — loads automatically, no file needed --- */
 @import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Modak&display=swap');
 
 @font-face {
   font-family: 'Joy';
@@ -40,26 +39,19 @@
   --green-mid:     #678f0c;
   --green-bright:  #5B8A2A;
   --cream:         #fceedf;
-  --cream-light:   #f4e6c5;
   --yellow:        #d1a804;
   --yellow-bright: #e0ba07;
   --blue:          #287be2;
   --blue-dark:     #006dd6;  
   --cardboard:     #C4A97A;
   --cardboard-dark:#B09060;
-  --white:         #fceedf;
   --text-dark:     #1a1a19;
-  --text-green:    #678f0c;
 
   /* Typography */
   --font-display: 'Joy', 'Fredoka', sans-serif;  /* swap fallback when font added */
   --font-body:    'Garet', 'Nunito', sans-serif; /* swap fallback when font added */
   --font-body-bold: 'Garet-Heavy', 'Nunito Bold 700', sans-serif; 
   --font-accent:  'Lacquer', cursive;            /* Google Fonts — ready to use now */
-
-  /* Spacing */
-  --section-pad: 5rem;
-  --nav-height:  120px;
 
   /* Max width for content */
   --max-width: 1300px;
@@ -77,6 +69,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden; 
 }
 
 body {
@@ -159,10 +152,6 @@ img, video {
   object-fit: contain;
 }
 
-/* Logo placeholder — hidden once real snack-night-logo.png img is uncommented in HTML */
-.navbar-logo-placeholder {
-  display: none;
-}
 
 .navbar-nav {
   display: flex;
@@ -176,14 +165,9 @@ img, video {
   pointer-events: auto;
 }
 
-.nav-link-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 
 .navbar-nav a {
+  position: relative;
   font-family: var(--font-display);
   font-size: 2.2rem;
   font-weight: 600;
@@ -391,7 +375,6 @@ img, video {
   background-size: 100% 100%;
   background-position: center top;
   padding-top: 15rem; /* Increased to push content down further into the cardboard */
-  padding-bottom: -1rem;
   margin-top: -9rem;  
   text-align: center;
 }
@@ -412,23 +395,6 @@ img, video {
 }
 
 /* Footer wordmark — uses snacknight-wordmark.png */
-.footer-logo-text {
-  display: block;
-  width: 140px;
-  height: auto;
-  /* Text hidden — replaced by img tag in HTML.
-     In index.html, change:
-       <div class="footer-logo-text">snack<br>night</div>
-     to:
-       <img src="assets/images/snacknight-wordmark.png" alt="Snack Night" class="footer-wordmark">
-  */
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--blue);
-  text-transform: lowercase;
-  line-height: 1.0;
-}
 
 .footer-wordmark {
   width: 140px;
@@ -453,6 +419,7 @@ img, video {
 }
 
 .footer-icon-link {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -460,7 +427,7 @@ img, video {
   height: 42px;
   background: var(--blue);
   border-radius: 50%;
-  color: var(--white);
+  color: var(--cream);
   font-size: 1.2rem;
   flex-shrink: 0;
   transition: transform 0.2s ease, background 0.2s ease;
@@ -481,7 +448,6 @@ img, video {
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--blue-dark);
-  opacity: 1;
 }
 
 /* ============================================================
@@ -562,8 +528,17 @@ img, video {
   width: 100%;
   position: relative;
   z-index: 1;
-  justify-content: center;
   margin-top: -12rem;
+}
+
+.hero-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 /* This is the "window" that restricts what the user sees */
@@ -572,12 +547,9 @@ img, video {
   width: 1100px; 
   max-width: 100vw; 
   aspect-ratio: 4 / 3;
-  overflow: hidden;
   margin: 0 auto;
-  background-color: var(--green-dark);
-  border-radius: 30px;
-  mask-image: -webkit-radial-gradient(white, black);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  background-color: transparent;
+  overflow: hidden;
 }
 
 /* This targets the iframe and makes it oversized */
@@ -591,6 +563,16 @@ img, video {
   pointer-events: none; 
 }
 
+.vimeo-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -30px; 
+  border: 50px solid var(--green-dark); 
+  border-radius: 80px; 
+  filter: url('#rough-edge'); 
+  pointer-events: none; 
+  z-index: 10; 
+}
 
 /* Hero tagline */
 .hero-tagline {
@@ -641,7 +623,6 @@ img, video {
   content: "";
   position: absolute;
   bottom: -30px;
-  height: 30px;
   left: 50%;
   transform: translateX(-50%);
   width: 200%;
@@ -1268,14 +1249,6 @@ transition: transform 0.4s ease;
   padding: 1rem 2rem 2rem;
 }
 
-.blog-header h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 700;
-  color: var(--cream);
-  text-transform: lowercase;
-}
-
 .blog-grid {
   max-width: 900px;
   margin: 0 auto;
@@ -1457,129 +1430,11 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   scroll-margin-top: 110px;
 }
 
-/* Restores the temporary card graphics so they don't collapse */
-.card-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  padding: 1rem;
-}
-
-.card-placeholder-title {
-  font-family: var(--font-display);
-  color: var(--cream);
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-align: center;
-  line-height: 1.3;
-}
-
-.card-placeholder-sub {
-  font-family: var(--font-display);
-  color: var(--yellow);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
 /* ------------------------------------------------------------
    TABLET & MOBILE BREAKPOINTS
    ------------------------------------------------------------ */
 @media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    max-width: 450px;
-    margin: 0 auto;
-    padding: 0 1rem 0rem;
-    gap: 3rem
-  }
 
-.project-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: none !important;
-    gap: 0.25rem;
-  }
-
-  /* 1. Project Image at top */
-  .project-card-img {
-    order: 1;
-    width: 100%;
-  }
-
-  /* 2. Project Label in the middle */
-  .project-card-label {
-    order: 2; 
-    position: relative;
-    writing-mode: horizontal-tb;
-    top: auto;
-    left: auto;
-    margin: .25rem 0 0.25rem 0; 
-    display: block;
-    text-align: center;
-    font-size: 1.8rem;
-    color: var(--cream); 
-    width: 100%;
-  }
-
-  /* 3. Commentary at bottom */
-  .card-comment {
-    order: 3;
-    position: relative;
-    opacity: 1;
-    transform: none !important;
-    top: auto;
-    right: auto;
-    margin: 0 auto;
-    display: block;
-    max-width: 90%;
-    padding: 0.4rem 0.8rem;
-  }
-
-  /* Keep the arrow hidden on narrow screens */
-  .card-arrow { display: none !important; }
-
-  /* Disable the desktop hover translations */
-  .project-card:nth-child(n) { transform: none !important; }
-  
-  .project-card:hover .project-card-img {
-    transform: scale(1.05) rotate(2deg); 
-  }
-  
-  .project-card:hover .project-card-label {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    color: var(--yellow);
-    font-size: 2rem;
-  }
-
-  .about-header {
-    padding-bottom: 1rem;
-  }
-
-  .about-portraits {
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-    flex-wrap: nowrap;
-    margin-top: 1.5rem;
-  }
-
-  .about-blobs { 
-    display: none !important; 
-  }
-
-  .about-blob-item img[src*="arrow.png"] {
-  display: none !important;
-  }
-}
-
-@media (max-width: 768px) {
   .navbar-nav {
     display: none;
     position: absolute;
@@ -1641,24 +1496,24 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .navbar-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   
   .vimeo-wrapper {
-    border-radius: 20px; 
     width: 95%;
   }
 
   .portrait-card { width: 240px; }
   
-
   .contact-blob-wrap {
     transform: scale(0.7);
     transform-origin: center;
     margin-left: -1rem; 
   }
-  
 
-  .hero-tagline h1 { font-size: 2.2rem; }
-  .footer { padding-top: 10rem; margin-top: -8rem; }
-  .about-text-section { 
-    padding: 12rem 2rem 12rem; 
+  .hero-tagline h1 { 
+    font-size: 2.2rem; 
+  }
+
+  .footer { 
+    padding-top: 10rem; 
+    margin-top: -8rem; 
   }
   
   .about-text-inner p {
@@ -1672,7 +1527,99 @@ BLOG SECTION TITLE (on home page the blog is an h2)
     margin-top: -4rem; 
     padding-top: 0;
   }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 0 1rem 0rem;
+    gap: 3rem
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: none !important;
+    gap: 0.25rem;
+  }
+
+  /* 1. Project Image at top */
+  .project-card-img {
+    order: 1;
+    width: 100%;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; 
+  }
+
+  /* 2. Project Label in the middle */
+  .project-card-label {
+    order: 2; 
+    position: relative;
+    writing-mode: horizontal-tb;
+    top: auto;
+    left: auto;
+    margin: .25rem 0 0.25rem 0; 
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--cream); 
+    width: 100%;
+  }
+
+  .card-comment {
+    order: 1;
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%) !important;
+    margin: 0;
+    display: block;
+    max-width: 85%;
+    padding: 0.6rem 1rem;
+    z-index: 10;
+    transition: opacity 0.4s ease;
+  }
+
+  .project-card.mobile-active {
+  transform: scale(1.06) !important;
+  }
+
+  .project-card.mobile-active .project-card-img {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 2px var(--yellow);
+  transform: scale(1.04);
+  }
+
+  .project-card.mobile-active .project-card-label {
+    color: var(--yellow) !important;
+  }
+
+  .project-card.mobile-active .card-comment {
+    opacity: 1;
+  }
+  /* Keep the arrow hidden on narrow screens */
+  .card-arrow { display: none !important; }
+
+  .about-header {
+    padding-bottom: 1rem;
+  }
+
+  .about-portraits {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: nowrap;
+    margin-top: 1.5rem;
+  }
+
+  .about-blobs { 
+    display: none !important; 
+  }
+
 }
+
 
 /* ============================================================
    FLOATING ELEVATOR NAVIGATION
@@ -1857,9 +1804,6 @@ BLOG SECTION TITLE (on home page the blog is an h2)
 /* ---- Pre-wired Lacquer comments on specific elements ---- */
 
 /* Portrait cards — personality labels on hover */
-.portrait-card.kyle {
-  position: relative;
-}
 .portrait-card.kyle::before {
   content: 'KYLE!!!';
   font-family: var(--font-accent);
@@ -1886,9 +1830,6 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   transform: translateX(-50%) rotate(-1.5deg) translateY(0);
 }
 
-.portrait-card.irem {
-  position: relative;
-}
 .portrait-card.irem::before {
   content: 'IREM!!!';
   font-family: var(--font-accent);
@@ -1915,16 +1856,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   transform: translateX(-50%) rotate(1.5deg) translateY(0);
 }
 
-/* Project card hover — featured card gets Lacquer label */
-.project-card.featured .project-card-label {
-  position: absolute;
-  /* existing styles stay, just ensure Lacquer commentary can overlap */
-}
-
 /* Footer icons — Lacquer label on hover using aria-label */
-.footer-icon-link {
-  position: relative;
-}
 .footer-icon-link::before {
   content: attr(aria-label);
   font-family: var(--font-accent);
@@ -1952,9 +1884,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
 }
 
 /* Nav links — Lacquer whisper on hover */
-.navbar-nav a {
-  position: relative;
-}
+
 .navbar-nav a[href="#projects"]::before,
 .navbar-nav a[href="../index.html#projects"]::before { content: 'the goods'; }
 .navbar-nav a[href="#about"]::before,

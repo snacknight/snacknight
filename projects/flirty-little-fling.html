@@ -291,39 +291,8 @@
   </footer>
 
   <script src="../js/main.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.querySelector('.navbar-toggle');
-      const navMenu = document.querySelector('.navbar-nav');
-      if (hamburger && navMenu) {
-        hamburger.addEventListener('click', (e) => {
-          e.preventDefault();
-          hamburger.classList.toggle('active');
-          navMenu.classList.toggle('active');
-        });
-        navMenu.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-          });
-        });
-      }
-    });
-  </script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script>
-    // Mobile Menu Toggle logic
-    const navbarToggle = document.querySelector('.navbar-toggle');
-    const navbarNav = document.querySelector('.navbar-nav');
-
-    if (navbarToggle) {
-      navbarToggle.addEventListener('click', () => {
-        const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
-        navbarToggle.setAttribute('aria-expanded', !isExpanded);
-        navbarNav.classList.toggle('active');
-      });
-    }
-
     const grid = document.querySelector('.project-photo-grid');
     const thumbs = document.querySelectorAll('.filmstrip-thumb');
 
@@ -331,7 +300,7 @@
       thumb.addEventListener('click', () => {
         const index = +thumb.dataset.index;
         const target = grid.children[index];
-        target.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        grid.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
         thumbs.forEach(t => t.classList.remove('active'));
         thumb.classList.add('active');
       });

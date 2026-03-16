@@ -85,5 +85,27 @@ section.addEventListener('wheel', (e) => {
   }
 }, { passive: false });
 
+if (window.matchMedia('(max-width: 768px)').matches) {
+  const mobileCards = document.querySelectorAll('.project-card');
+  let currentActive = null;
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if (currentActive && currentActive !== entry.target) {
+        currentActive.classList.remove('mobile-active');
+      }
+      entry.target.classList.add('mobile-active');
+      currentActive = entry.target;
+    }
+  });
+}, {
+  threshold: 0.3,
+  rootMargin: '-35% 0px -35% 0px'
+});
+
+  mobileCards.forEach(card => observer.observe(card));
+}
+
 });
 
