@@ -3,110 +3,98 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards = [...grid.querySelectorAll('.project-card')];
   const dots = [...document.querySelectorAll('.deck-dot')];
   const section = document.querySelector('#projects');
-  let locked = false;
-  let activeIndex = 0;
-  if (window.innerWidth <= 768) return;
+
+  // MOBILE OBSERVER — runs before the desktop-only early return
+  if (window.matchMedia('(max-width: 600px)').matches) {
+    let currentActive = null;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (currentActive && currentActive !== entry.target) {
+            currentActive.classList.remove('mobile-active');
+          }
+          entry.target.classList.add('mobile-active');
+          currentActive = entry.target;
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '-25% 0px -55% 0px'
+    });
+    cards.forEach(card => observer.observe(card));
+    return; // exit here on mobile, don't run any desktop code
+  }
+
+  // ---- DESKTOP ONLY BELOW ----
 
   function setActive(i) {
-    activeIndex = ((i % cards.length) + cards.length) % cards.length; // wraps both directions
-    cards.forEach((c, idx) => c.classList.toggle('deck-active', idx === activeIndex));
-    dots.forEach((d, idx) => d.classList.toggle('active', idx === activeIndex));
+    const idx = ((i % cards.length) + cards.length) % cards.length;
+    grid.classList.add('has-hover');
+    cards.forEach((c, ci) => c.classList.toggle('deck-active', ci === idx));
+    dots.forEach((d, di) => d.classList.toggle('active', di === idx));
   }
 
-  function lock(startIndex) {
-    if (locked) return;
-    locked = true;
-    grid.classList.add('deck-locked');
-    setActive(startIndex);
-  }
-
-  function unlock() {
-    if (!locked) return;
-    locked = false;
-    grid.classList.remove('deck-locked');
+  function clearActive() {
+    grid.classList.remove('has-hover');
     cards.forEach(c => c.classList.remove('deck-active'));
     dots.forEach(d => d.classList.remove('active'));
     dots[0].classList.add('active'); // reset for next open
   }
 
-  // Hover any card → lock
+  // Hover on any card → activate it
   cards.forEach((card, i) => {
-    card.addEventListener('mouseenter', () => lock(i));
+    card.addEventListener('mouseenter', () => setActive(i));
   });
 
-  // Click active card → navigate
-  // Click empty space → unlock
-  grid.addEventListener('click', (e) => {
-    if (!locked) return;
-    const clickedCard = e.target.closest('.project-card');
-    if (clickedCard && clickedCard.classList.contains('deck-active')) {
-      window.location.href = clickedCard.href;
-    } else {
-      unlock();
-    }
-    e.preventDefault();
+  // Mouse leaves grid entirely → snap back
+  grid.addEventListener('mouseleave', () => clearActive());
+
+  // Click active card → navigate to project page
+  cards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (card.classList.contains('deck-active')) {
+        window.location.href = card.href;
+      }
+      e.preventDefault();
+    });
   });
 
   // Dot clicks
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => setActive(+dot.dataset.index));
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => setActive(i));
   });
 
   // Close button
-  document.querySelector('.deck-hint').addEventListener('click', () => unlock());
+  document.querySelector('.deck-hint').addEventListener('click', () => clearActive());
 
-  // Escape key → unlock
+  // Escape key → clear
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && locked) unlock();
+    if (e.key === 'Escape') clearActive();
   });
 
- let wheelCooldown = false;
+  // Wheel: horizontal cycles cards, strong vertical clears
+  let wheelCooldown = false;
 
-section.addEventListener('wheel', (e) => {
-  if (!locked) return;
+  section.addEventListener('wheel', (e) => {
+    if (!grid.classList.contains('has-hover')) return;
 
-  // Dominant axis check with dead zone
-  const absX = Math.abs(e.deltaX);
-  const absY = Math.abs(e.deltaY);
+    const absX = Math.abs(e.deltaX);
+    const absY = Math.abs(e.deltaY);
 
-  if (absY > 30 && absY > absX * 2) {
-    // Clearly vertical → unlock
-    unlock();
-    return;
-  }
-
-  if (absX > 5 && absX > absY) {
-    // Horizontal → cycle, but debounce
-    e.preventDefault();
-    if (wheelCooldown) return;
-    wheelCooldown = true;
-    if (e.deltaX > 0) setActive(activeIndex + 1);
-    else setActive(activeIndex - 1);
-    setTimeout(() => { wheelCooldown = false; }, 250);
-  }
-}, { passive: false });
-
-if (window.matchMedia('(max-width: 768px)').matches) {
-  const mobileCards = document.querySelectorAll('.project-card');
-  let currentActive = null;
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      if (currentActive && currentActive !== entry.target) {
-        currentActive.classList.remove('mobile-active');
-      }
-      entry.target.classList.add('mobile-active');
-      currentActive = entry.target;
+    if (absY > 30 && absY > absX * 2) {
+      clearActive();
+      return;
     }
-  });
-}, {
-  threshold: 0.3,
-  rootMargin: '-35% 0px -35% 0px'
+
+    if (absX > 5 && absX > absY) {
+      e.preventDefault();
+      if (wheelCooldown) return;
+      wheelCooldown = true;
+      const currentIdx = cards.findIndex(c => c.classList.contains('deck-active'));
+      if (e.deltaX > 0) setActive(currentIdx + 1);
+      else setActive(currentIdx - 1);
+      setTimeout(() => { wheelCooldown = false; }, 250);
+    }
+  }, { passive: false });
+
 });
-
-  mobileCards.forEach(card => observer.observe(card));
-}
-
-});
-
