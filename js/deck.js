@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const section = document.querySelector('#projects');
 
   // MOBILE OBSERVER — runs before the desktop-only early return
-  if (window.matchMedia('(max-width: 600px)').matches) {
+  if (window.matchMedia('(max-width: 649px)').matches) {
     let currentActive = null;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
