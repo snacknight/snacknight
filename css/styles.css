@@ -93,8 +93,12 @@ img, video {
 
 .work-page, .about-page, .contact-page, .blog-page {
   margin: 0;
-  padding: 6rem 0 2rem 0; /* Creates uniform breathing room at the top of every section */
+  padding: 4rem 0 2rem 0; /* Creates uniform breathing room at the top of every section */
   background: var(--green-dark);
+}
+
+#home, #projects, #about, #contact, #blog {
+  scroll-margin-top: 1rem;
 }
 
 
@@ -594,14 +598,14 @@ img, video {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 6rem;
   padding: 2rem 4rem 0rem;
   flex-wrap: wrap;
 }
 
 .portrait-card {
   position: relative;
-  width: 22%;
+  width: 30%;
   min-width: 200px;
   flex-shrink: 1;
 }
@@ -612,7 +616,7 @@ img, video {
   height: auto;
   border-radius: 30px;
   border: 8px solid var(--cream);
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
 }
 
@@ -745,7 +749,6 @@ img, video {
   font-size: 1.05rem;
   line-height: 1.8;
   color: var(--text-dark);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .about-text-inner p strong {
@@ -860,6 +863,7 @@ transition: transform 0.4s ease;
   position: absolute;
   top: 6%;
   left: calc(100% + 10px);
+  z-index: 10;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   font-family: var(--font-display);
@@ -883,14 +887,13 @@ transition: transform 0.4s ease;
   left: calc(100% + 20px); 
 }
 
-@media (max-width: 1150px) and (min-width: 650px) {
-  .projects-grid {
-    gap: 5rem 6rem; /* Tighten the horizontal gap between cards */
-  }
 
+/* ---- Medium screen label fix ---- */
+@media (max-width: 1150px) and (min-width: 650px) {
   .project-card-label {
-    font-size: 1.3rem; /* Shrink the font slightly so it takes up less horizontal space */
-    left: calc(100% + 5px); /* Pull it closer to the card image */
+      font-size: 1rem; 
+      z-index: 1;
+      transition: 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   }
 }
 
@@ -1487,7 +1490,6 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .contact-blob-wrap {
     transform: scale(0.7);
     transform-origin: center;
-    margin-left: -1rem; 
   }
 
   .hero-tagline {
@@ -1508,7 +1510,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
     line-height: 1.6;
   }
   .contact-hero {
-    margin-top: -10rem; 
+    margin-top: -16rem; 
   }
   .contact-form-section {
     margin-top: -4rem; 
@@ -1540,6 +1542,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .project-card-label {
     order: 2; 
     position: relative;
+    z-index: 10;
     writing-mode: horizontal-tb;
     top: auto;
     left: auto;
@@ -1588,8 +1591,22 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .card-arrow { display: none !important; }
   .deck-dots { display: none !important; }
 
-  .about-header {
-    padding-bottom: 1rem;
+  .portrait-card.mobile-active .portrait-img {
+    transform: scale(1.15) rotate(3deg);
+    border-color: var(--yellow);
+  }
+
+  .portrait-card.irem.mobile-active .portrait-img {
+    transform: scale(1.15) rotate(-3deg);
+  }
+
+  .portrait-card.mobile-active .portrait-name {
+    color: var(--yellow);
+  }
+
+  .portrait-card.mobile-active::before {
+    opacity: 1;
+    transform: translateX(-50%) rotate(-1.5deg) translateY(0);
   }
 
   .about-portraits {

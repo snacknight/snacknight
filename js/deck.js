@@ -22,6 +22,26 @@ document.addEventListener('DOMContentLoaded', () => {
       rootMargin: '-25% 0px -55% 0px'
     });
     cards.forEach(card => observer.observe(card));
+
+    // Portrait cards — same scroll-activated effect
+    const portraits = [...document.querySelectorAll('.portrait-card')];
+    let currentPortrait = null;
+    const portraitObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (currentPortrait && currentPortrait !== entry.target) {
+            currentPortrait.classList.remove('mobile-active');
+          }
+          entry.target.classList.add('mobile-active');
+          currentPortrait = entry.target;
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '-25% 0px -55% 0px'
+    });
+    portraits.forEach(p => portraitObserver.observe(p));
+
     return; // exit here on mobile, don't run any desktop code
   }
 

@@ -34,62 +34,51 @@
 
       <!-- LEFT: Video + Photos -->
       <div class="project-photos">
-
-        <!-- Main video embed — swap in your Vimeo or YouTube embed -->
-        <div class="project-photo-main" aria-label="Sasha Avilov">
-          <!--
-            Vimeo:   <iframe src="https://player.vimeo.com/video/VIDEO_ID" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="PROJECT_TITLE"></iframe>
-            YouTube: <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen title="PROJECT_TITLE"></iframe>
-          -->
-          <iframe 
-            src="EMBED_URL"
-            style="aspect-ratio: ASPECT_RATIO; width: 100%; height: 100%;"
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-          </iframe>
-        </div>
-
         <!-- 
           Photo grid — duplicate or remove grid-item blocks as needed.
           Image naming convention: PREFIX_1.jpg, PREFIX_2.jpg, etc.
         -->
         <div class="project-photo-grid">
-
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/PREFIX_1.jpg" loading="lazy">          
+            <img src="../assets/images/projects/sash_1.jpeg" loading="lazy">          
           </div>
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/PREFIX_2.jpg" loading="lazy">          
+            <img src="../assets/images/projects/sash_2.jpg" loading="lazy">          
           </div>
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/PREFIX_3.jpg" loading="lazy">          
+            <img src="../assets/images/projects/sash_3.jpg" loading="lazy">          
           </div>
-          <!-- ADD / REMOVE grid items as needed -->
+            <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/sash_4.jpg" loading="lazy">          
+          </div>
+            <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/sash_5.jpg" loading="lazy">          
+          </div>
+            <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/sash_6.jpg" loading="lazy">          
+          </div>
+ 
 
         </div>
-
-        <!-- 
-          Filmstrip — keep in sync with photo grid above.
-          Match data-index (0-based) and image src to the grid items.
-        -->
         <div class="photo-filmstrip">
-          <div class="filmstrip-thumb active" data-index="0"><img src="../assets/images/projects/PREFIX_1.jpg"></div>
-          <div class="filmstrip-thumb" data-index="1"><img src="../assets/images/projects/PREFIX_2.jpg"></div>
-          <div class="filmstrip-thumb" data-index="2"><img src="../assets/images/projects/PREFIX_3.jpg"></div>
+          <div class="filmstrip-thumb active" data-index="0"><img src="../assets/images/projects/sash_1.JPEG"></div>
+          <div class="filmstrip-thumb" data-index="1"><img src="../assets/images/projects/sash_2.jpg"></div>
+          <div class="filmstrip-thumb" data-index="2"><img src="../assets/images/projects/sash_3.jpg"></div>
+          <div class="filmstrip-thumb" data-index="3"><img src="../assets/images/projects/sash_4.jpg"></div>
+          <div class="filmstrip-thumb" data-index="4"><img src="../assets/images/projects/sash_5.jpg"></div>
+          <div class="filmstrip-thumb" data-index="5"><img src="../assets/images/projects/sash_6.jpg"></div>
           <!-- ADD / REMOVE thumbs to match grid items -->
         </div>
-
       </div>
 
       <!-- RIGHT: Nutrition Label Credits -->
-      <aside class="nutrition-label" role="complementary" aria-label="Project credits">
-        <div class="nutrition-label-title">Sasha Avilov</div>
-        <div class="nutrition-label-subtitle">Snack Nighter | since 2022</div>
+        <aside class="nutrition-label" role="complementary" aria-label="Project credits" style="height: fit-content; align-self: flex-start; position: sticky; top: 120px;">        <div class="nutrition-label-title">Sasha Avilov</div>
+        <div class="nutrition-label-subtitle">Snack Nighter since 2022</div>
 
         <div class="nutrition-label-desc">
-          Sasha is our resident baker, physical therapist, photographer, and the tallest girl in the universe. 
+          <p>Sasha is our resident baker, physical therapist, photographer, and the tallest girl in the universe.</p> 
+          <br> 
+          <p>She serves the Chairman of the Snack Board. She is very good at knitting. </p>
         </div>
 
         <hr class="nutrition-divider">
@@ -131,8 +120,8 @@
         <!-- ADD / REMOVE credit rows as needed -->
 
         <div class="nutrition-row last-row">
-          <span class="role">Starring</span>
-          <span class="name">TALENT_NAME</span>
+          <span class="role">Featuring</span>
+          <span class="name">SASHA!!!</span>
         </div>
 
         <!-- 
@@ -157,6 +146,18 @@
           </p>
         </div>
       </aside>
+    </div>
+
+    <!-- Main video embed — swap in your Vimeo or YouTube embed -->
+    <div class="project-photo-main" aria-label="Sasha Avilov">
+        <video 
+        src="../assets/images/projects/sasha.mov" 
+        style="width: 100%; max-width: 400px; height: auto; border-radius: 30px; margin: 0 auto; display: block;"            autoplay 
+        loop 
+        muted 
+        playsinline>
+        Your browser does not support the video tag.
+        </video>
     </div>
 
     <!-- PROJECT STORY 

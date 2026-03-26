@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'projects': 'projects',
     'about': 'about',
     'contact': 'contact',
-    'blog': 'the snack log'
+    'blog': 'blog'
   };
 
   if (navContainer && backToTopBtn && scrollDownBtn) {
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         backToTopBtn.style.display = 'flex';
         const upId = targetSectionUp ? targetSectionUp.id : 'home';
-        backToTopBtn.innerText = `↑ ${sectionNames[upId]}`;
+        backToTopBtn.innerText = `▲ ${sectionNames[upId]}`;
       }
 
       // 6. Update DOWN Button text & visibility
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
          scrollDownBtn.style.display = 'flex';
          const downId = targetSectionDown ? targetSectionDown.id : 'blog';
-         scrollDownBtn.innerText = `↓ ${sectionNames[downId]}`;
+         scrollDownBtn.innerText = `▼ ${sectionNames[downId]}`;
       }
     });
 
