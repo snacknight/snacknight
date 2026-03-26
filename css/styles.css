@@ -1504,18 +1504,6 @@ BLOG SECTION TITLE (on home page the blog is an h2)
     padding-top: 10rem; 
     margin-top: -8rem; 
   }
-  
-  .about-text-inner p {
-    font-size: 1.05rem; 
-    line-height: 1.6;
-  }
-  .contact-hero {
-    margin-top: -16rem; 
-  }
-  .contact-form-section {
-    margin-top: -4rem; 
-    padding-top: 0;
-  }
 
   .projects-grid {
     grid-template-columns: 1fr;
@@ -1640,8 +1628,10 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   }
 
   .about-text-section {
+    font-size: 1.05rem; 
+    line-height: 1.6;
     padding: 32% 1.5rem 36%; 
-    margin-bottom: 10rem;
+    margin-bottom: 2rem;
   }
 
   .contact-blob-wrap {
@@ -1660,13 +1650,18 @@ BLOG SECTION TITLE (on home page the blog is an h2)
     position: absolute;
     top: 50%;
     right: 0;
-    transform: translate(35%, -60%); 
+    transform: translate(35%, -30%); 
     display: block;
   }
 
   .contact-fish {
     margin: 0;           
-    transform: scale(0.6); 
+    transform: scale(0.8); 
+  }
+
+  .contact-form-section {
+    margin-top: -1rem; 
+    padding-top: 0;
   }
 }
 
