@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sasha Avilov, Chairman of the Board.">
+  <title>Sasha — Snack Night</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/project-page.css">
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <a href="../index.html" class="navbar-logo" aria-label="Snack Night home">
+        <img src="../assets/images/snack-night-logo.png" alt="Snack Night">
+      </a>
+      <button class="navbar-toggle" aria-expanded="false" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar-nav">
+        <li><a href="../index.html#projects" class="active">projects</a></li>
+        <li><a href="../index.html#about">about</a></li>
+        <li><a href="../index.html#contact">contact</a></li>
+        <li><a href="../index.html#blog">blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== PROJECT PAGE ===================== -->
+  <main class="project-page" aria-label="Sasha Avilov">
+    <div class="project-layout">
+
+      <!-- LEFT: Video + Photos -->
+      <div class="project-photos">
+
+        <!-- Main video embed — swap in your Vimeo or YouTube embed -->
+        <div class="project-photo-main" aria-label="Sasha Avilov">
+          <!--
+            Vimeo:   <iframe src="https://player.vimeo.com/video/VIDEO_ID" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="PROJECT_TITLE"></iframe>
+            YouTube: <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen title="PROJECT_TITLE"></iframe>
+          -->
+          <iframe 
+            src="EMBED_URL"
+            style="aspect-ratio: ASPECT_RATIO; width: 100%; height: 100%;"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- 
+          Photo grid — duplicate or remove grid-item blocks as needed.
+          Image naming convention: PREFIX_1.jpg, PREFIX_2.jpg, etc.
+        -->
+        <div class="project-photo-grid">
+
+          <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/PREFIX_1.jpg" loading="lazy">          
+          </div>
+          <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/PREFIX_2.jpg" loading="lazy">          
+          </div>
+          <div class="project-photo-grid-item">
+            <img src="../assets/images/projects/PREFIX_3.jpg" loading="lazy">          
+          </div>
+          <!-- ADD / REMOVE grid items as needed -->
+
+        </div>
+
+        <!-- 
+          Filmstrip — keep in sync with photo grid above.
+          Match data-index (0-based) and image src to the grid items.
+        -->
+        <div class="photo-filmstrip">
+          <div class="filmstrip-thumb active" data-index="0"><img src="../assets/images/projects/PREFIX_1.jpg"></div>
+          <div class="filmstrip-thumb" data-index="1"><img src="../assets/images/projects/PREFIX_2.jpg"></div>
+          <div class="filmstrip-thumb" data-index="2"><img src="../assets/images/projects/PREFIX_3.jpg"></div>
+          <!-- ADD / REMOVE thumbs to match grid items -->
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Nutrition Label Credits -->
+      <aside class="nutrition-label" role="complementary" aria-label="Project credits">
+        <div class="nutrition-label-title">Sasha Avilov</div>
+        <div class="nutrition-label-subtitle">Snack Nighter | since 2022</div>
+
+        <div class="nutrition-label-desc">
+          Sasha is our resident baker, physical therapist, photographer, and the tallest girl in the universe. 
+        </div>
+
+        <hr class="nutrition-divider">
+
+        <!-- 
+          CREDITS — duplicate or remove nutrition-row blocks as needed.
+          Common roles: Directed by, Produced by, Director of Photography,
+          Editor, Color Grading, Production Design, Behind the Scenes, Starring
+        -->
+        
+        <!--
+        <div class="nutrition-row">
+          <span class="role">Directed by</span>
+          <span class="name">DIRECTOR_NAMES</span>
+        </div>
+
+        <div class="nutrition-row">
+          <span class="role">Produced by</span>
+          <span class="name">PRODUCER_NAMES</span>
+        </div>
+
+        <div class="nutrition-row">
+          <span class="role">Director of Photography</span>
+          <span class="name">DP_NAME</span>
+        </div>
+
+        <div class="nutrition-row">
+          <span class="role">Editor</span>
+          <span class="name">EDITOR_NAME</span>
+        </div>
+
+        <div class="nutrition-row">
+          <span class="role">Color Grading</span>
+          <span class="name">COLORIST_NAME</span>
+        </div>
+
+        -->
+
+        <!-- ADD / REMOVE credit rows as needed -->
+
+        <div class="nutrition-row last-row">
+          <span class="role">Starring</span>
+          <span class="name">TALENT_NAME</span>
+        </div>
+
+        <!-- 
+          AWARDS — remove this entire block if no awards.
+          Duplicate the nutrition-row inside for multiple awards.
+        -->
+
+          <!--
+        <hr class="nutrition-divider">
+        <div class="nutrition-row nutrition-awards">
+          <span class="role">Awards</span>
+          <span class="name award-value">AWARD_DESCRIPTION</span>
+        </div>
+
+        -->
+
+
+        <div class="nutrition-footer">
+          <p class="nutrition-footnote">
+            * The Percent Daily Values are based on a diet of 2,000 hand stands  a day. 
+            Your daily values may be higher or lower depending on your snack needs.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- PROJECT STORY 
+    <section class="project-description-container">
+      <div class="project-description-inner">
+        <h2 class="description-heading">the story</h2>
+        <div class="description-content">
+          <p>STORY_PARAGRAPH_1</p>
+          <p>STORY_PARAGRAPH_2</p>
+          <p>STORY_PARAGRAPH_3</p> 
+          
+          
+          // ADD / REMOVE paragraphs as needed // 
+
+        </div>
+      </div>
+    </section>
+  </main>
+ -->
+
+  <!-- ===================== BACK BUTTON BAR ===================== -->
+  <section class="credits-section">
+    <div class="credits-inner">
+      <div class="project-actions">
+        <a href="../index.html#projects" class="project-back-btn all-prj-btn" aria-label="Back to all projects">
+          ← all projects
+        </a>
+        <a href="../index.html#contact" class="project-back-btn lets-cook-btn">let's cook → </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 
+    MORE PROJECTS — swap in 3 other project cards.
+    Update href, image src, alt text, title, and type for each.
+  -->
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-icons">
+        <a class="footer-icon-link" href="mailto:snacknightmov@gmail.com" aria-label="Email Snack Night">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <a class="footer-icon-link" href="https://instagram.com/snacknight.mov" target="_blank" rel="noopener" aria-label="Snack Night on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <div class="footer-center-block">
+          <div class="footer-logo">
+            <img src="../assets/images/snacknight-wordmark.png" alt="Snack Night" class="footer-wordmark">
+          </div>
+        </div>
+        <a class="footer-icon-link" href="https://vimeo.com/snacknight" target="_blank" rel="noopener" aria-label="Snack Night on Vimeo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.977 6.416c-.105 2.338-1.739 5.543-4.894 9.609-3.268 4.247-6.026 6.37-8.29 6.37-1.409 0-2.578-1.294-3.553-3.881L5.322 11.4C4.603 8.816 3.834 7.522 3.01 7.522c-.179 0-.806.378-1.881 1.132L0 7.197c1.185-1.044 2.351-2.084 3.501-3.128C5.08 2.701 6.266 1.984 7.055 1.91c1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.507.539 2.45 1.131 3.674 1.776 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.48 4.807z"/></svg>
+        </a>
+        <a class="footer-icon-link" href="https://www.youtube.com/channel/UCDPlmmO_OpTMO7gEt0Qtieg" target="_blank" rel="noopener" aria-label="Snack Night on YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        </a>
+      </div>
+      <p class="footer-copyright">© 2026, snacknight llc.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script>
+    /* --- Filmstrip navigation --- */
+    const grid = document.querySelector('.project-photo-grid');
+    const thumbs = document.querySelectorAll('.filmstrip-thumb');
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const index = +thumb.dataset.index;
+        const target = grid.children[index];
+        grid.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+      });
+    });
+
+    grid.addEventListener('scroll', () => {
+      const items = [...grid.children];
+      const closest = items.reduce((prev, curr) =>
+        Math.abs(curr.offsetLeft - grid.scrollLeft) < Math.abs(prev.offsetLeft - grid.scrollLeft) ? curr : prev
+      );
+      const index = items.indexOf(closest);
+      thumbs.forEach(t => t.classList.remove('active'));
+      if (thumbs[index]) thumbs[index].classList.add('active');
+    });
+  </script>
+
+</body>
+</html>

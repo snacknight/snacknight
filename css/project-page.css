@@ -28,7 +28,7 @@
 .project-back-btn {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   background: var(--yellow);
   color: var(--green-dark);

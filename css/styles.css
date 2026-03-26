@@ -91,6 +91,12 @@ img, video {
   display: block;
 }
 
+.work-page, .about-page, .contact-page, .blog-page {
+  margin: 0;
+  padding: 6rem 0 2rem 0; /* Creates uniform breathing room at the top of every section */
+  background: var(--green-dark);
+}
+
 
 /* ============================================================
    NAVBAR
@@ -490,15 +496,15 @@ img, video {
 /* This is the "window" that restricts what the user sees */
 .vimeo-wrapper {
   position: relative;
-  width: 900px; 
+  width: 100%;;
   max-width: 100vw;
   border-radius: 30px;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16/9;
   margin: 0 auto;
   background-color: transparent;
   overflow: hidden;
   margin-top: 6.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 /* This targets the iframe and makes it oversized */
@@ -509,22 +515,18 @@ img, video {
   width: 100%; 
   height: 100%; 
   transform: translate(-50%, -50%) scale(1);
-  pointer-events: none; 
 }
 
 /* Hero tagline */
 .hero-tagline {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 70%);
   text-align: center;
   width: 100%;
   max-width: 900px;
+  margin: 0 auto;
   padding: 0 2rem;
-  background: transparent; /* Removes the solid dark green box */
-  z-index: 20; /* Ensures it sits on top of the video mask */
-  pointer-events: none; /* Stops the text box from blocking right-clicks/interactions on the video */
+  background: transparent;
+  z-index: 20; 
+  pointer-events: none; 
 }
 
 /* Add a drop shadow to make it legible against the bright video */
@@ -544,10 +546,11 @@ img, video {
 }
 
 .hero-tagline p {
-  font-family: var(--font-body);
+  font-family: var(--font-body-bold);
   font-size: 1.1rem;
   color: var(--cream);
-  opacity: 0.9; /* Upped this slightly from 0.8 for better contrast */
+  opacity: 1;
+  text-shadow: #1a1a19;
   max-width: 600px;
   margin: 0 auto 1.5rem;
 }
@@ -555,11 +558,6 @@ img, video {
 /* ============================================================
    ABOUT PAGE
    ============================================================ */
-.about-page {
-  background: var(--green-dark);
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-}
 
 .about-header h2 {
   font-family: var(--font-display);
@@ -586,7 +584,7 @@ img, video {
 
 .about-header {
   text-align: center;
-  padding: 4rem 2rem 2rem;
+  padding: 0 2rem 4rem;
   position: relative;
 }
 
@@ -596,8 +594,8 @@ img, video {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  padding: 0rem 2rem 1rem;
+  gap: 5rem;
+  padding: 2rem 4rem 0rem;
   flex-wrap: wrap;
 }
 
@@ -614,23 +612,13 @@ img, video {
   height: auto;
   border-radius: 30px;
   border: 8px solid var(--cream);
-  margin-bottom: 0.5rem; /* Adds breathing room above the name */
+  margin-bottom: 2rem;
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
-}
-
-/* The hover interaction (Scale up and rotate right) */
-.portrait-card:hover .portrait-img {
-  transform: scale(1.05) rotate(3deg);
-  border-color: var(--yellow);
-}
-
-/* Make Irem rotate left so they feel organic and mirrored */
-.portrait-card.irem:hover .portrait-img {
-  transform: scale(1.05) rotate(-3deg);
 }
 
 .portrait-name {
   font-family: var(--font-display);
+  color: var(--cream);
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
@@ -638,10 +626,31 @@ img, video {
   margin-bottom: 0rem;
   text-transform: capitalize;
   letter-spacing: 0.03em;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease; /* ADD THIS LINE */
 }
 
-.portrait-card.kyle  .portrait-name { color: var(--green-bright); }
-.portrait-card.irem  .portrait-name { color: var(--blue); }
+/* The hover interaction (Scale up and rotate right) */
+.portrait-card:hover .portrait-img {
+  transform: scale(1.15) rotate(3deg);
+  border-color: var(--yellow);
+}
+
+/* Make Irem rotate left so they feel organic and mirrored */
+.portrait-card.irem:hover .portrait-img {
+  transform: scale(1.15) rotate(-3deg);
+}
+
+/* Base hover for the names (turns yellow and tilts right) */
+.portrait-card:hover .portrait-name {
+  color: var(--yellow);
+  transform: scale(1.15) rotate(3deg);
+}
+
+/* Make Irem's name tilt left to match her photo */
+.portrait-card.irem:hover .portrait-name {
+  transform: scale(1.15) rotate(-3deg);
+}
+
 
 /* Center blob tags */
 .about-blobs {
@@ -681,7 +690,7 @@ img, video {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-color: transparent;
-  margin-top: -6rem;
+  margin-top: -3rem;
   text-align: right;
   padding-right: 4rem;
 }
@@ -695,13 +704,13 @@ img, video {
 }
 
 .about-blob-item li {
-  font-family: var(--font-accent);
-  font-size: 1rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
   font-weight: 400;
   color: var(--cream);
-  text-transform: lowercase;
+  text-transform: capitalize;
   letter-spacing: 0.05em;
-  line-height: 1.8;
+  line-height: .8;
 }
 
 .about-blob-item li::before {
@@ -722,7 +731,7 @@ img, video {
   background-image: url('../assets/images/about.png');
   background-size: 100% 100%;
   background-position: center;
-  padding: 12rem 2rem;
+  padding: 18rem 2rem;
   margin-top: -4rem;
 }
 
@@ -736,23 +745,24 @@ img, video {
   font-size: 1.05rem;
   line-height: 1.8;
   color: var(--text-dark);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.about-text-inner p strong {
+  font-family: var(--font-body-bold);
+  font-weight: normal;
 }
 
 /* ============================================================
   PROJECTS / WORK PAGE (UPDATED LAYOUT)
   ============================================================ */
-.work-page {
-background: var(--green-dark);
-min-height: auto;
-}
 
 .projects-section-inner {
 max-width: 1100px;
 margin: 0 auto;
 padding: 0 2.5rem 2rem;
 position: relative;
-margin-top: -3rem;
-margin-bottom: -2rem;
+gap: 2rem;
 }
 
 .projects-center-label {
@@ -856,7 +866,7 @@ transition: transform 0.4s ease;
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--cream);
-  text-transform: lowercase;
+  text-transform: capitalize;
   letter-spacing: 0.05em;
   opacity: 0.85;
   transition: color 0.2s ease, opacity 0.2s ease;
@@ -873,7 +883,7 @@ transition: transform 0.4s ease;
   left: calc(100% + 20px); 
 }
 
-@media (max-width: 1150px) and (min-width: 901px) {
+@media (max-width: 1150px) and (min-width: 650px) {
   .projects-grid {
     gap: 5rem 6rem; /* Tighten the horizontal gap between cards */
   }
@@ -903,19 +913,19 @@ transition: transform 0.4s ease;
 
    /* Active card: same nudge + scale up */
   .projects-grid.has-hover .project-card:nth-child(1).deck-active {
-    transform: scale(1.25) translate(80px, 50px);
+    transform: scale(1.35) translate(80px, 50px);
     z-index: 50;
   }
   .projects-grid.has-hover .project-card:nth-child(2).deck-active {
-    transform: scale(1.25) translate(-80px, 80px);
+    transform: scale(1.35) translate(-80px, 80px);
     z-index: 50;
   }
   .projects-grid.has-hover .project-card:nth-child(3).deck-active {
-    transform: scale(1.25) translate(100px, -50px);
+    transform: scale(1.35) translate(100px, -50px);
     z-index: 50;
   }
   .projects-grid.has-hover .project-card:nth-child(4).deck-active {
-    transform: scale(1.25) translate(-80px, -80px);
+    transform: scale(1.35) translate(-80px, -80px);
     z-index: 50;
   }
 
@@ -1075,18 +1085,14 @@ transition: transform 0.4s ease;
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
-.contact-page {
-  background: var(--green-dark);
-  min-height: 80vh;
-}
 
 .contact-hero {
   padding: 0rem 2rem 3rem;
-  margin-top: -5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-top: -8rem;
 }
 
 .contact-blob-wrap {
@@ -1100,8 +1106,8 @@ transition: transform 0.4s ease;
 .contact-fish {
   opacity: 0.9;
   transform: scale(1.35);
-  margin-left: -11.1rem;
-  margin-top: -1.5rem;
+  margin-left: -14.3rem;
+  margin-top: -2rem;
 }
 
 /* Contact form */
@@ -1125,7 +1131,7 @@ transition: transform 0.4s ease;
 
 .form-group label {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.7rem;
   font-weight: 600;
   color: var(--cream);
   text-transform: capitalize;
@@ -1182,7 +1188,7 @@ transition: transform 0.4s ease;
 
 .form-submit button {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   background: var(--yellow);
   color: var(--green-dark);
@@ -1216,10 +1222,6 @@ transition: transform 0.4s ease;
 /* ============================================================
    BLOG PAGE
    ============================================================ */
-.blog-page {
-  background: var(--green-dark);
-  min-height: 100vh;
-}
 
 .blog-header {
   text-align: center;
@@ -1404,7 +1406,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
    MISC, UTILITIES & RESPONSIVE
    ============================================================ */
 .section-scroll-target {
-  scroll-margin-top: 110px;
+  scroll-margin-top: -170px;
 }
 
 /* ------------------------------------------------------------
@@ -1476,7 +1478,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .vimeo-wrapper {
     width: 100%;
     border-radius: 30px;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
     margin-top: 6rem;
   }
 
@@ -1511,10 +1513,6 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .contact-form-section {
     margin-top: -4rem; 
     padding-top: 0;
-  }
-
-  .projects-section-inner {
-    margin-top: 12rem;
   }
 
   .projects-grid {
@@ -1570,7 +1568,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   }
 
   .project-card.mobile-active {
-  transform: scale(1.06) !important;
+  transform: scale(1.1) !important;
   }
 
   .project-card.mobile-active .project-card-img {
@@ -1793,7 +1791,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
 
 /* Portrait cards — personality labels on hover */
 .portrait-card.kyle::before {
-  content: 'KYLE!!!';
+  content: 'Aspiring Bagel Critic';
   font-family: var(--font-accent);
   font-size: 1.2rem;
   text-transform: lowercase;
@@ -1819,7 +1817,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
 }
 
 .portrait-card.irem::before {
-  content: 'IREM!!!';
+  content: 'Pickle Lover, Dill Hater';
   font-family: var(--font-accent);
   font-size: 1.2rem;
   text-transform: lowercase;
