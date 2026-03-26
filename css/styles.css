@@ -749,7 +749,6 @@ img, video {
   font-size: 1.05rem;
   line-height: 1.8;
   color: var(--text-dark);
-  text-shadow: 0 4px 5px rgba(255, 255, 255, 0.7), 0 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 .about-text-inner p strong {
@@ -1636,11 +1635,39 @@ BLOG SECTION TITLE (on home page the blog is an h2)
     transform: translateX(-50%) rotate(1.5deg) translateY(0);
   }
 
-
   .about-blobs { 
     display: none !important; 
   }
 
+  .about-text-section {
+    padding: 32% 1.5rem 36%; 
+    margin-bottom: 10rem;
+  }
+
+  .contact-blob-wrap {
+    transform: none; 
+    display: block;  
+    position: relative;
+    max-width: 300px; 
+    margin: 0 auto;   
+  }
+  .contact-blob-wrap img {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .contact-blob-wrap a {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(35%, -60%); 
+    display: block;
+  }
+
+  .contact-fish {
+    margin: 0;           
+    transform: scale(0.6); 
+  }
 }
 
 
