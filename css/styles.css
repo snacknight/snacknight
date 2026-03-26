@@ -1650,7 +1650,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
     position: absolute;
     top: 50%;
     right: 0;
-    transform: translate(35%, -30%); 
+    transform: translate(0%, -70%); 
     display: block;
   }
 
@@ -1660,7 +1660,7 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   }
 
   .contact-form-section {
-    margin-top: -1rem; 
+    margin-top: 1rem; 
     padding-top: 0;
   }
 }
