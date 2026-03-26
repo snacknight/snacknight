@@ -1617,6 +1617,17 @@ BLOG SECTION TITLE (on home page the blog is an h2)
     margin-top: 1.5rem;
   }
 
+  .portrait-card.kyle.mobile-active::before {
+    opacity: 1;
+    transform: translateX(-50%) rotate(-1.5deg) translateY(0);
+  }
+
+  .portrait-card.irem.mobile-active::before {
+    opacity: 1;
+    transform: translateX(-50%) rotate(1.5deg) translateY(0);
+  }
+
+
   .about-blobs { 
     display: none !important; 
   }
