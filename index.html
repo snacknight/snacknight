@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Snack Night — Filmmaking with flavor. DC-based film production creating music videos, documentaries, and branded content.">
   <title>Snack Night — Filmmaking with Flavor</title>
+  <link rel="preconnect" href="https://player.vimeo.com">
+  <link rel="preconnect" href="https://i.vimeocdn.com">
+  <link rel="preconnect" href="https://f.vimeocdn.com">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -298,7 +301,7 @@
     <div class="blog-grid" aria-label="Video Essays">
       <a href="https://www.instagram.com/p/DTbRwfFiYoV/" target="_blank" rel="noopener" class="blog-card">
         <div class="blog-card-img">
-          <img src="assets/images/blog1.png" alt="Video thumbnail">
+          <img src="assets/images/blog1.png" alt="Video thumbnail" loading="lazy">
         </div>
         <div class="blog-card-body">
           <div class="blog-card-date"></div>
@@ -309,7 +312,7 @@
 
       <a href="https://www.instagram.com/p/DTLZejWjn7Q/" target="_blank" rel="noopener" class="blog-card">
         <div class="blog-card-img">
-          <img src="assets/images/blog2.png" alt="Video thumbnail">
+          <img src="assets/images/blog2.png" alt="Video thumbnail" loading="lazy">
         </div>
         <div class="blog-card-body">
           <div class="blog-card-date"></div>
@@ -320,7 +323,7 @@
 
       <a href="https://www.instagram.com/p/DUrGaB3iXv3/" target="_blank" rel="noopener" class="blog-card">
         <div class="blog-card-img">
-          <img src="assets/images/blog3.png" alt="Video thumbnail">
+          <img src="assets/images/blog3.png" alt="Video thumbnail" loading="lazy">
         </div>
         <div class="blog-card-body">
           <div class="blog-card-date"></div>
@@ -331,7 +334,7 @@
 
       <a href="https://www.instagram.com/p/DS5z8cvCaGy/" target="_blank" rel="noopener" class="blog-card">
         <div class="blog-card-img">
-          <img src="assets/images/blog4.png" alt="Video thumbnail">
+          <img src="assets/images/blog4.png" alt="Video thumbnail" loading="lazy">
         </div>
         <div class="blog-card-body">
           <div class="blog-card-date"></div>
@@ -342,7 +345,7 @@
 
       <a href="https://www.instagram.com/p/DRmnA13jgnq/" target="_blank" rel="noopener" class="blog-card">
         <div class="blog-card-img">
-          <img src="assets/images/blog5.png" alt="Video thumbnail">
+          <img src="assets/images/blog5.png" alt="Video thumbnail" loading="lazy">
         </div>
         <div class="blog-card-body">
           <div class="blog-card-date"></div>
@@ -384,8 +387,15 @@
     </div>
   </footer>
 
-<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-
+  <script>
+    window.addEventListener('load', () => {
+      const s = document.createElement('script');
+      s.type = 'module';
+      s.src = 'https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs';
+      document.body.appendChild(s);
+    });
+  </script>
+  
   <script src="js/main.js"></script>
 
   <script>
