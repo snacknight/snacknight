@@ -1,0 +1,84 @@
+#sn-cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+#sn-cookie-banner .sn-cb-inner {
+  background: #1a1a1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+#sn-cookie-banner .sn-cb-text {
+  color: #b0b0b0;
+  font-size: 13px;
+  line-height: 1.5;
+  flex: 1;
+  min-width: 240px;
+}
+
+#sn-cookie-banner .sn-cb-text a {
+  color: #e0e0e0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+#sn-cookie-banner .sn-cb-text a:hover {
+  color: #fff;
+}
+
+#sn-cookie-banner .sn-cb-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+#sn-cookie-banner .sn-cb-btn {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+#sn-cookie-banner .sn-cb-btn:hover {
+  opacity: 0.85;
+}
+
+#sn-cookie-banner .sn-cb-accept {
+  background: #e8e8e8;
+  color: #1a1a1a;
+}
+
+#sn-cookie-banner .sn-cb-decline {
+  background: transparent;
+  color: #888;
+  border: 1px solid #333;
+}
+
+@media (max-width: 520px) {
+  #sn-cookie-banner .sn-cb-inner {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  #sn-cookie-banner .sn-cb-actions {
+    justify-content: flex-end;
+  }
+}

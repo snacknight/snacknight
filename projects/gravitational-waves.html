@@ -3,10 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ho Cares About Gravitational Waves? Short Documentary. Directed by Kyle Finnegan">
+  <meta name="description" content="Who Cares About Gravitational Waves? Short Documentary. Directed by Kyle Finnegan">
   <title>Who Cares About Gravitational Waves? — Snack Night</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/project-page.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Who Cares About Gravitational Waves?",
+    "description": "Far off in the universe, two black holes smash into each other and send waves through space time. Waves that we can't feel, can't touch, and are hard to predict. So who cares?",
+    "thumbnailUrl": "https://www.snacknight.mov/assets/images/projects/GW1.jpeg",
+    "uploadDate": "2025-01-01",
+    "contentUrl": "https://www.youtube.com/watch?v=41GBBL0Fyv0",
+    "embedUrl": "https://www.youtube.com/embed/41GBBL0Fyv0",
+    "director": [
+      {
+        "@type": "Person",
+        "name": "Kyle Finnegan"
+      },
+      {
+        "@type": "Person",
+        "name": "Lieke Von Son"
+      }
+    ],
+    "producer": {
+      "@type": "Person",
+      "name": "Kyle Finnegan"
+    },
+    "actor": {
+      "@type": "Person",
+      "name": "Lieke Von Son"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -49,28 +80,28 @@
         <!-- Photo grid -->
         <div class="project-photo-grid">
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/GW1.jpeg" loading="lazy">          
+            <img src="../assets/images/projects/GW1.jpeg" loading="lazy" alt="A behind-the-scenes still from the Who Cares About Gravitational Waves? short doc">          
           </div>
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/GW2.jpg" loading="lazy">          
+            <img src="../assets/images/projects/GW2.jpg" loading="lazy" alt="A Q&A still from the Who Cares About Gravitational Waves? short doc">          
           </div>
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/GW3.jpg" loading="lazy">          
+            <img src="../assets/images/projects/GW3.jpg" loading="lazy" alt="A Q&A still from the Who Cares About Gravitational Waves? short doc">          
           </div>
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/GW4.jpeg" loading="lazy">          
+            <img src="../assets/images/projects/GW4.jpeg" loading="lazy" alt="A behind-the-scenes still from the Who Cares About Gravitational Waves? short doc">          
           </div>
             <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/GW5.jpg" loading="lazy">          
+            <img src="../assets/images/projects/GW5.jpg" loading="lazy" alt="A screening still from the Who Cares About Gravitational Waves? short doc">          
           </div>
             <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/GW6.jpg" loading="lazy">          
+            <img src="../assets/images/projects/GW6.jpg" loading="lazy" alt="A screening still from the Who Cares About Gravitational Waves? short doc">          
           </div>
            <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/GW7.JPG" loading="lazy">          
+            <img src="../assets/images/projects/GW7.JPG" loading="lazy" alt="A behind-the-scenes still from the Who Cares About Gravitational Waves? short doc">          
           </div>
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/GW8.jpeg" loading="lazy">          
+            <img src="../assets/images/projects/GW8.jpeg" loading="lazy" alt="A behind-the-scenes still from the Who Cares About Gravitational Waves? short doc">          
           </div>
         </div>
 
@@ -188,8 +219,7 @@
         <a href="../index.html#projects" class="project-back-btn all-prj-btn" aria-label="Back to all projects">
           ← all projects
         </a>
-        <a href="../index.html#contact" class="project-back-btn lets-cook-btn">let's cook → </a>
-      </div>
+      <a href="../index.html#contact" class="project-back-btn lets-cook-btn" aria-label="Contact Snack Night to start a video production project">let's cook → </a>      </div>
 </section>
 
 <section class="more-projects-bar">
@@ -280,5 +310,39 @@
     });
   </script>
 
+<!--
+  SNACK NIGHT — COOKIE CONSENT BANNER
+  =====================================
+  1. Put cookie-banner.css and cookie-banner.js in your assets folder
+     (e.g. assets/css/ and assets/js/)
+
+  2. Add the CSS link in your <head>:
+
+     <link rel="stylesheet" href="/assets/css/cookie-banner.css">
+
+     For project pages in a subfolder, adjust the path:
+     <link rel="stylesheet" href="../assets/css/cookie-banner.css">
+
+  3. Paste the HTML + script tag below right before </body>
+     on every page (index.html, each project page, etc.)
+-->
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="sn-cookie-banner">
+  <div class="sn-cb-inner">
+    <div class="sn-cb-text">
+      we use cookies to understand how visitors interact with our site.
+      no sneaky stuff, just the basics.
+      <!-- <a href="/privacy">learn more</a> -->
+    </div>
+    <div class="sn-cb-actions">
+      <button class="sn-cb-btn sn-cb-decline" onclick="snCookieDecline()">no thanks</button>
+      <button class="sn-cb-btn sn-cb-accept" onclick="snCookieAccept()">sounds good</button>
+    </div>
+  </div>
+</div>
+<script src="/assets/js/cookie-banner.js"></script>
+<!-- END COOKIE CONSENT BANNER -->
+ 
 </body>
 </html>

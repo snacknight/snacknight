@@ -7,6 +7,51 @@
   <title>Mysterious Savory Grains — Snack Night</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/project-page.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "MSG: Mysterious Savory Grains",
+    "description": "To share his culture through food, Chef Tim Ma must defy monosodium glutamate's unsavory reputation.",
+    "thumbnailUrl": "https://www.snacknight.mov/assets/images/projects/MSG1.JPEG",
+    "uploadDate": "2023-01-01",
+    "contentUrl": "https://player.vimeo.com/video/1165380650",
+    "embedUrl": "https://player.vimeo.com/video/1165380650",
+    "director": {
+      "@type": "Person",
+      "name": "Kyle Finnegan"
+    },
+    "producer": [
+      {
+        "@type": "Person",
+        "name": "Kyle Finnegan"
+      },
+      {
+        "@type": "Person",
+        "name": "Susann Shin"
+      },
+      {
+        "@type": "Person",
+        "name": "Yi Chen"
+      }
+    ],
+    "actor": [
+      {
+        "@type": "Person",
+        "name": "Tim Ma"
+      },
+      {
+        "@type": "Person",
+        "name": "Sarah E. Tracy PhD"
+      },
+      {
+        "@type": "Person",
+        "name": "Jennifer Lin LeMesurier"
+      }
+    ],
+    "award": "Telly Silver Award"
+  }
+  </script>
 </head>
 <body>
 
@@ -53,25 +98,25 @@
         <!-- Photo grid -->
         <div class="project-photo-grid">
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/MSG1.JPEG" loading="lazy">          
+            <img src="../assets/images/projects/MSG1.JPEG" loading="lazy" alt="Poster for Mysterious Savory Grains">          
           </div>
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/MSG2.jpeg" loading="lazy">          
+            <img src="../assets/images/projects/MSG2.jpeg" loading="lazy" alt="A cinematic still from the Mysterious Savory Grains short doc">          
           </div>
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/MSG3.jpg" loading="lazy">          
+            <img src="../assets/images/projects/MSG3.jpg" loading="lazy" alt="A cinematic still from the Mysterious Savory Grains short doc">          
           </div>
           <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/MSG4.jpeg" loading="lazy">          
+            <img src="../assets/images/projects/MSG4.jpeg" loading="lazy" alt="A cinematic still from the Mysterious Savory Grains short doc">          
           </div>
             <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/MSG5.jpeg" loading="lazy">          
+            <img src="../assets/images/projects/MSG5.jpeg" loading="lazy" alt="A cinematic still from the Mysterious Savory Grains short doc">          
           </div>
             <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/MSG6.jpg" loading="lazy">          
+            <img src="../assets/images/projects/MSG6.jpg" loading="lazy" alt="A bts still from the Mysterious Savory Grains short doc">          
           </div>
             <div class="project-photo-grid-item">
-            <img src="../assets/images/projects/MSG7.jpg" loading="lazy">          
+            <img src="../assets/images/projects/MSG7.jpg" loading="lazy" alt="A bts still from the Mysterious Savory Grains short doc">          
           </div>
         </div>
 
@@ -82,7 +127,7 @@
           <div class="filmstrip-thumb" data-index="3"><img src="../assets/images/projects/MSG4.jpeg"></div>
           <div class="filmstrip-thumb" data-index="4"><img src="../assets/images/projects/MSG5.jpeg"></div>
           <div class="filmstrip-thumb" data-index="5"><img src="../assets/images/projects/MSG6.jpg"></div>
-          <div class="filmstrip-thumb" data-index="5"><img src="../assets/images/projects/MSG7.jpg"></div>
+          <div class="filmstrip-thumb" data-index="6"><img src="../assets/images/projects/MSG7.jpg"></div>
         </div>
 
       </div>
@@ -227,8 +272,7 @@
         <a href="../index.html#projects" class="project-back-btn all-prj-btn" aria-label="Back to all projects">
           ← all projects
         </a>
-        <a href="../index.html#contact" class="project-back-btn lets-cook-btn">let's cook → </a>
-      </div>
+      <a href="../index.html#contact" class="project-back-btn lets-cook-btn" aria-label="Contact Snack Night to start a video production project">let's cook → </a>      </div>
 </section>
 
 <section class="more-projects-bar">
@@ -319,5 +363,39 @@
     });
   </script>
 
+<!--
+  SNACK NIGHT — COOKIE CONSENT BANNER
+  =====================================
+  1. Put cookie-banner.css and cookie-banner.js in your assets folder
+     (e.g. assets/css/ and assets/js/)
+
+  2. Add the CSS link in your <head>:
+
+     <link rel="stylesheet" href="/assets/css/cookie-banner.css">
+
+     For project pages in a subfolder, adjust the path:
+     <link rel="stylesheet" href="../assets/css/cookie-banner.css">
+
+  3. Paste the HTML + script tag below right before </body>
+     on every page (index.html, each project page, etc.)
+-->
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="sn-cookie-banner">
+  <div class="sn-cb-inner">
+    <div class="sn-cb-text">
+      we use cookies to understand how visitors interact with our site.
+      no sneaky stuff, just the basics.
+      <!-- <a href="/privacy">learn more</a> -->
+    </div>
+    <div class="sn-cb-actions">
+      <button class="sn-cb-btn sn-cb-decline" onclick="snCookieDecline()">no thanks</button>
+      <button class="sn-cb-btn sn-cb-accept" onclick="snCookieAccept()">sounds good</button>
+    </div>
+  </div>
+</div>
+<script src="/assets/js/cookie-banner.js"></script>
+<!-- END COOKIE CONSENT BANNER -->
+ 
 </body>
 </html>

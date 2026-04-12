@@ -9,6 +9,42 @@
   <link rel="preconnect" href="https://i.vimeocdn.com">
   <link rel="preconnect" href="https://f.vimeocdn.com">
   <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Snack Night LLC",
+    "description": "DC-based film production company creating music videos, documentaries, and branded content.",
+    "url": "https://www.snacknight.mov",
+    "logo": "https://www.snacknight.mov/assets/images/snack-night-logo.png",
+    "email": "hi@snacknight.mov",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Arlington",
+      "addressRegion": "VA",
+      "addressCountry": "US"
+    },
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Kyle Finnegan",
+        "jobTitle": "Director / Producer"
+      },
+      {
+        "@type": "Person",
+        "name": "Irem Dogancali",
+        "jobTitle": "Editor / Producer"
+      }
+    ],
+    "sameAs": [
+      "https://instagram.com/snacknight.mov",
+      "https://vimeo.com/snacknight",
+      "https://www.youtube.com/channel/UCDPlmmO_OpTMO7gEt0Qtieg"
+    ]
+  }
+</script>
+
 </head>
 <body>
 
@@ -249,7 +285,7 @@
         action="https://formspree.io/f/mgoljlov"
         method="POST"
         novalidate
-        aria-label="Get in touch"
+        aria-label="Contact Snack Night for video production services"
       >
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
 
@@ -267,7 +303,7 @@
             <option value="" disabled selected>Select your flavor</option>
             <option value="music-video">Music Video</option>
             <option value="documentary">Documentary</option>
-             <option value="documentary">Narrative</option>
+            <option value="narrative">Narrative</option>
             <option value="branded-content">Branded Content</option>
             <option value="other">Something Else</option>
           </select>
@@ -277,7 +313,7 @@
           <textarea id="message" name="message" placeholder="Give us the must have ingredients — timeline, budget range, your vision, whatever feels relevant." required></textarea>
         </div>
         <div class="form-submit">
-          <button type="submit">send it →</button>
+          <button type="submit" aria-label="Submit project inquiry">send it →</button>
         </div>
       </form>
 
@@ -383,8 +419,10 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
         </a>
       </div>
-      <p class="footer-copyright">© 2026, snacknight llc.</p>
-    </div>
+       <p class="footer-copyright">
+         © 2026, snacknight llc. | <a href="mailto:hi@snacknight.mov" style="text-decoration: underline; text-underline-offset: 4px;">hi@snacknight.mov</a>
+      </p>
+      </div>
   </footer>
 
   <script>
@@ -413,5 +451,39 @@
     <a href="#" class="section-nav-btn" id="scrollDown" aria-label="Scroll down">down ↓</a>
   </div>
 
+  
+<!--
+  SNACK NIGHT — COOKIE CONSENT BANNER
+  =====================================
+  1. Put cookie-banner.css and cookie-banner.js in your assets folder
+     (e.g. assets/css/ and assets/js/)
+
+  2. Add the CSS link in your <head>:
+
+     <link rel="stylesheet" href="/assets/css/cookie-banner.css">
+
+     For project pages in a subfolder, adjust the path:
+     <link rel="stylesheet" href="../assets/css/cookie-banner.css">
+
+  3. Paste the HTML + script tag below right before </body>
+     on every page (index.html, each project page, etc.)
+-->
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="sn-cookie-banner">
+  <div class="sn-cb-inner">
+    <div class="sn-cb-text">
+      we use cookies to understand how visitors interact with our site.
+      no sneaky stuff, just the basics.
+      <!-- <a href="/privacy">learn more</a> -->
+    </div>
+    <div class="sn-cb-actions">
+      <button class="sn-cb-btn sn-cb-decline" onclick="snCookieDecline()">no thanks</button>
+      <button class="sn-cb-btn sn-cb-accept" onclick="snCookieAccept()">sounds good</button>
+    </div>
+  </div>
+</div>
+<script src="/assets/js/cookie-banner.js"></script>
+<!-- END COOKIE CONSENT BANNER -->
 </body>
 </html>
