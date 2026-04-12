@@ -1,84 +1,103 @@
+/* ============================================================
+   COOKIE CONSENT BANNER
+   Uses Snack Night design tokens from styles.css
+   (--green-dark, --yellow, --cream, --font-display, --font-body)
+   ============================================================ */
+
 #sn-cookie-banner {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 9999;
   display: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  width: calc(100% - 40px);
+  max-width: 520px;
 }
 
 #sn-cookie-banner .sn-cb-inner {
-  background: #1a1a1a;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 16px 24px;
+  background: var(--green-dark);
+  border: 2px solid var(--yellow);
+  border-radius: 16px;
+  padding: 20px 24px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  max-width: 100%;
-  box-sizing: border-box;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
 #sn-cookie-banner .sn-cb-text {
-  color: #b0b0b0;
-  font-size: 13px;
-  line-height: 1.5;
-  flex: 1;
-  min-width: 240px;
+  font-family: var(--font-body);
+  color: var(--cream);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-transform: lowercase;
 }
 
 #sn-cookie-banner .sn-cb-text a {
-  color: #e0e0e0;
+  color: var(--yellow);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 #sn-cookie-banner .sn-cb-text a:hover {
-  color: #fff;
+  color: var(--yellow-bright);
 }
 
 #sn-cookie-banner .sn-cb-actions {
   display: flex;
-  gap: 10px;
-  flex-shrink: 0;
+  gap: 12px;
+  justify-content: flex-end;
 }
 
+/* Matches .btn base from styles.css */
 #sn-cookie-banner .sn-cb-btn {
-  font-size: 13px;
-  font-weight: 500;
-  padding: 8px 18px;
-  border-radius: 4px;
-  border: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
+  padding: 0.6rem 1.6rem;
+  border-radius: 2rem;
+  border: 2.5px solid currentColor;
   cursor: pointer;
-  transition: opacity 0.2s ease;
-  letter-spacing: 0.01em;
-}
-
-#sn-cookie-banner .sn-cb-btn:hover {
-  opacity: 0.85;
-}
-
-#sn-cookie-banner .sn-cb-accept {
-  background: #e8e8e8;
-  color: #1a1a1a;
-}
-
-#sn-cookie-banner .sn-cb-decline {
+  transition: all 0.2s ease;
   background: transparent;
-  color: #888;
-  border: 1px solid #333;
+}
+
+/* Accept — matches .btn-yellow */
+#sn-cookie-banner .sn-cb-accept {
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+
+#sn-cookie-banner .sn-cb-accept:hover {
+  background: var(--yellow);
+  color: var(--green-dark);
+  transform: translateY(-2px);
+}
+
+/* Decline — subtle cream outline */
+#sn-cookie-banner .sn-cb-decline {
+  color: var(--cream);
+  border-color: rgba(252, 238, 223, 0.3);
+}
+
+#sn-cookie-banner .sn-cb-decline:hover {
+  border-color: var(--cream);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 520px) {
-  #sn-cookie-banner .sn-cb-inner {
-    padding: 14px 16px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+  #sn-cookie-banner {
+    bottom: 12px;
+    width: calc(100% - 24px);
   }
-  #sn-cookie-banner .sn-cb-actions {
-    justify-content: flex-end;
+  #sn-cookie-banner .sn-cb-inner {
+    padding: 16px;
+  }
+  #sn-cookie-banner .sn-cb-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
   }
 }
