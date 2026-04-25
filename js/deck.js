@@ -42,6 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     portraits.forEach(p => portraitObserver.observe(p));
 
+    // Interns link — reveal when about header scrolls into view
+    const internsLink = document.querySelector('.interns-link');
+    const aboutHeader = document.querySelector('.about-header');
+    if (internsLink && aboutHeader) {
+      const headerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          internsLink.classList.toggle('mobile-active', entry.isIntersecting);
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '-20% 0px -60% 0px'
+      });
+      headerObserver.observe(aboutHeader);
+    }
     return; // exit here on mobile, don't run any desktop code
   }
 

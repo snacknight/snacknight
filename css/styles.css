@@ -592,6 +592,40 @@ img, video {
   position: relative;
 }
 
+.interns-link {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%; 
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  text-transform: lowercase;
+  color: var(--green-dark);
+  background: var(--yellow);
+  border: 1.5px solid var(--yellow);
+  border-radius: 6px;
+  padding: 0.4rem 0.85rem;
+  box-shadow: 2px 3px 0 rgba(0,0,0,0.25);
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+  opacity: 0;
+  transform: rotate(-5deg) translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+  pointer-events: none;
+  z-index: 50;
+}
+
+
+.about-header:hover .interns-link {
+  opacity: 1;
+  transform: rotate(-2deg) translateY(0);
+  pointer-events: auto;
+}
+
+.interns-link:hover {
+  background: var(--yellow-bright);
+  transform: rotate(-1deg) translateY(-2px) scale(1.05);
+}
 
 /* Portrait cards (sardine can frames) */
 .about-portraits {
@@ -1626,6 +1660,17 @@ BLOG SECTION TITLE (on home page the blog is an h2)
   .about-blobs { 
     display: none !important; 
   }
+
+  .interns-link {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.interns-link.mobile-active {
+  opacity: 1;
+  transform: rotate(-2deg) translateY(0);
+  pointer-events: auto;
+}
 
   .about-text-section {
     font-size: 1.05rem; 
